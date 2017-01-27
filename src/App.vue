@@ -1,28 +1,23 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+    <TopContainer></TopContainer>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import TopContainer from 'components/common/TopContainer.vue'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    TopContainer
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="stylus">
+  #app 
+    font-family "Microsoft YaHei",Arial,Helvetica,sans-serifsans-serif
+    -webkit-font-smoothing antialiased
+    -moz-osx-font-smoothing grayscale
 </style>
