@@ -9,6 +9,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="stylus">
+    .top-container
+        background-color red
+        width 200px
+        height 200px
 </style>
