@@ -44,7 +44,10 @@
                 <span>注册</span>
               </a>
             </li>
-            <li class="u-i b-post"></li>
+            <li class="u-i b-post">
+              <a class="i-link" href="http://member.bilibili.com/v/video/submit.html" target="_blank" @mouseenter="isShowPostMenu = !isShowPostMenu" @mouseleave="isShowPostMenu = !isShowPostMenu">投稿</a>
+              <PostMaterial v-show="isShowPostMenu"></PostMaterial>
+            </li>
           </ul>
         </div>
       </div>
@@ -53,8 +56,21 @@
 </template>
 
 <script>
+import PostMaterial from './PostMaterial.vue'
 export default {
-
+  data() {
+    return {
+      isShowPostMenu: false
+    }
+  },
+  components: {
+    PostMaterial
+  },
+  methods: {
+    showPostMenu() {
+      this.isShowPostMenu = !this.isShowPostMenu
+    }
+  }
 }
 </script>
 
@@ -173,18 +189,48 @@ export default {
         .uns_box
           float right
           font-size 12px
-          li[guest]
-            display none
-            .u-i
-              float left
-              text-align center
-              height 42px
-              line-height 42px
-              position relative
           ul
-            .menu
+            &.menu
               float left
               position relative
-
-
+            li
+              list-style-type none
+              &.u-i
+                float left
+                text-align center
+                height 42px
+                line-height 42px
+                position relative
+                a.i-link
+                  display block
+                  color #222
+                &#i_menu_login_reg
+                  padding 0 10px
+                  .i-link
+                    display inline-block
+                    padding 0 10px
+                    color #222
+                    span
+                      display block
+                      margin 0px
+                      padding 0px
+                  .s-line
+                    display inline-block
+                    border-left 1px solid #222
+                    height 12px
+                    margin-top 16px
+                    vertical-align top
+                &.b-post
+                  margin-right 0px
+                  a.i-link
+                    margin 0px
+                    padding 0px
+                    width 58px
+                    position relative
+                    z-index 100
+                    background url(../../assets/images/b-post.png) center center no-repeat
+                    height 48px
+                    border-radius 0 0 5px 5px
+                    color #fff!important
+                    font-size 14px
 </style>

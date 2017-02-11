@@ -1,5 +1,6 @@
 <template>
   <div class="header">
+  	<span>你大爷</span>
   </div>
 </template>
 
@@ -9,6 +10,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="stylus">
 
 </style>
