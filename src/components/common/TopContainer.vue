@@ -2,7 +2,7 @@
   <div class="top_container">
     <div class="z_top b-header-blur b-header-blur-black">
       <div class="b-header-mask-wrp">
-        <div class="b-header-mask-bg" style="background-image: url('//i0.hdslb.com/bfs/archive/4b9c7031618e743f3ed3e13f74ebc0130c55d981.jpg');"></div>
+        <div class="b-header-mask-bg" style="background-image: url('//i0.hdslb.com/bfs/archive/4f59bf959d51592016e07efe62969c411288826a.png');"></div>
         <div class="b-header-mask"></div>
       </div>
       <div class="z_header">
@@ -124,7 +124,7 @@ export default {
           width 100%
           height 100%
           z-index 100
-          background-color rgba(255, 255, 255, 0.4)
+          background-color rgba(0, 0, 0, 0.4)
       .z_header
         display block
         margin 0 auto
@@ -144,6 +144,10 @@ export default {
           float left
           height 42px
           font-size 12px
+          span
+            font-weight bold
+          a
+            font-weight bold
           li
             .new
               position absolute
@@ -154,6 +158,8 @@ export default {
               width 22px
               height 10px
               background-position -851px -412px
+            a.i-link
+              font-size 12px
           ul
             zoom 1
             &:after
@@ -172,12 +178,12 @@ export default {
               a.i-link
                 height 100%
                 display block
-                color #222
+                color #fff
               &.home
                 margin-left -10px
                 background-image url(../../assets/images/icons.png)
                 background-repeat no-repeat
-                background-position -910px -74px
+                background-position -845px -74px
                 .i-link
                   width 50px
                   height 42px
@@ -214,6 +220,7 @@ export default {
                       display block
                       margin 0px
                       padding 0px
+                      font-weight 700
                   .s-line
                     display inline-block
                     border-left 1px solid #222
