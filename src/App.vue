@@ -30,11 +30,4 @@ export default {
     min-width 990px
     tap-highlight-color transparent
     -webkit-tap-highlight-color transparent
-    .bheader
-      background-image url('http://i0.hdslb.com/bfs/archive/4b9c7031618e743f3ed3e13f74ebc0130c55d981.jpg')
-      background transparent no-repeat center -10px
-      position relative
-      margin -42px auto 0
-      background-color red
-      height 200px
 </style>
