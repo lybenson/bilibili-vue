@@ -24,6 +24,13 @@ export default {
     background transparent no-repeat center -10px
     position relative
     margin -42px auto 0
+    &:after
+      content ''
+      display block
+      visibility hidden
+      height 0px
+      clear both
+      font-size 0
     .header-layer
     	height 170px
     .header-link
@@ -40,6 +47,13 @@ export default {
     	height 170px
     	top -170px
     	transition .2s height
+      &:after
+        content ""
+        display block
+        visibility hidden
+        height 0px
+        clear both
+        font-size 0
     	.logo
     		position absolute
     		width 220px
@@ -58,6 +72,6 @@ export default {
     		color #fff
     		border-radius 4px
     		font-size 14px
-    		max-width  350px
+    		max-width 350px
     		transition .2s
 </style>

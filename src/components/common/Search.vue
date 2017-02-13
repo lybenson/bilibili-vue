@@ -15,26 +15,26 @@
 	}
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 	.search
 		z-index 100
-		width 268px
-		height 32px
-		background red
 		position absolute
 		top calc(170px - (56px - 32px) - 32px)
 		right 0
-		border-radius 6px
+		width 268px
+		height 32px
+		padding 2px 2px 2px 72px
 		background-color rgba(0, 0, 0, 0.12)
-		padding 2px 2px 2px 7px
+		border-radius 6px
 		#searchform
 			background-color rgba(255, 255, 255, 0.88)
 			display block
 			height 32px
 			border-radius 4px
 			transition .2s background-color
+			margin-top 0em
 			.search-keyword
-				float right
+				float left
 				width 200px
 				color #222
 				font-size 12px
@@ -45,6 +45,7 @@
 				border 0
 				box-shadow none
 				background-color transparent
+				outline 0
 			.search-submit
 				display block
 				position absolute

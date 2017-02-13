@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TopContainer></TopContainer>
-    <BHeader class="bheader"></BHeader>
+    <BHeader></BHeader>
   </div>
 </template>
 
