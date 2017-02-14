@@ -14,7 +14,7 @@ import BMenuItem from 'components/common/BMenuItem'
 export default {
 	data() {
 		return {
-			itemNum: [1, 2, 3, 4, 5]
+			itemNum: [1]
 		}
 	},
 	components: {

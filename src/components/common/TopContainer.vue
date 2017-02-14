@@ -80,6 +80,7 @@ export default {
     position relative
     z-index 10000
     .z_top
+      background-color transparent
       height 42px
       background #fff
       box-shadow rgba(0, 0, 0, 0.1) 0 1px 2px
@@ -88,7 +89,7 @@ export default {
       width 100%
       position relative
       z-index 10000
-      font-family "Microsoft YaHei",Arial,Helvetica,sans-serifsans-serif
+      font-family "Microsoft YaHei",Arial,Helvetica,sans-serifsans-serif !important
       color #222
       .i-link
         padding 0 14px
@@ -144,10 +145,6 @@ export default {
           float left
           height 42px
           font-size 12px
-          span
-            font-weight bold
-          a
-            font-weight bold
           li
             .new
               position absolute
@@ -220,7 +217,6 @@ export default {
                       display block
                       margin 0px
                       padding 0px
-                      font-weight 700
                   .s-line
                     display inline-block
                     border-left 1px solid #222

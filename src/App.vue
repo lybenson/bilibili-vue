@@ -19,9 +19,8 @@ export default {
 
 <style lang="stylus">
   #app 
-    font-family "Microsoft YaHei",Arial,Helvetica,sans-serifsans-serif
+    font-family "Microsoft YaHei",Arial,Helvetica,sans-serif
     -webkit-font-smoothing antialiased
-    -moz-osx-font-smoothing grayscale
     font-size 12px
     margin 0
     padding 0
