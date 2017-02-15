@@ -1,11 +1,12 @@
 <template>
-	<li class="m-i">
+	<li class="m-i" :class="{home: num === 1}">
 		<a class="i-link" href="">
 			<em>{{title}}</em>
-			<div class="v-num">
+			<div class="v-num" v-if="num !== 1">
 				<span class="addnew_1">{{num}}</span>
 			</div>
 		</a>
+		<ul></ul>
 	</li>
 </template>
 
@@ -13,11 +14,10 @@
 export default {
 	data() {
 		return {
-			title: '动画',
-			num: '888+'
+			title: '动画'
 		}
 	},
-	props: []
+	props: ['num']
 }
 </script>
 
@@ -27,7 +27,18 @@ export default {
 		position relative
 		font-size  14px
 		display block
-		height 50px
+		height 50px	
+		&.home
+			padding 0 12px 0 0
+			width auto
+			margin 0
+			a.i-link
+				padding 0
+				background url(../../assets/images/icons.png) -658px -1170px no-repeat
+				em
+					padding-left 0
+					padding-right 0
+					margin 0
 		a
 			color #222
 			display block

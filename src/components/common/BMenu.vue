@@ -1,8 +1,8 @@
 <template>
 	<div class="menu">
 		<div class="menu-wrapper">
-			<ul class="nav-menu">
-				<BMenuItem v-for="i in itemNum"></BMenuItem>
+			<ul class="nav-menu" v-for="i in itemNum">
+				<BMenuItem :num="i"></BMenuItem>
 			</ul>
 			<div class="menu-r"></div>
 		</div>
@@ -14,7 +14,7 @@ import BMenuItem from 'components/common/BMenuItem'
 export default {
 	data() {
 		return {
-			itemNum: [1]
+			itemNum: [1, 3, 4, 5, 5, 6]
 		}
 	},
 	components: {
@@ -29,7 +29,7 @@ export default {
 		background #fff
 		.menu-wrapper
 			position relative
-			width 980px
+			width 1160px
 			margin 0 auto
 			padding 6px 0
 			z-index 100

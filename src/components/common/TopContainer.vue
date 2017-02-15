@@ -89,7 +89,7 @@ export default {
       width 100%
       position relative
       z-index 10000
-      font-family "Microsoft YaHei",Arial,Helvetica,sans-serifsans-serif !important
+      font-family "Microsoft YaHei",Arial,Helvetica,sans-serifsans-serif
       color #222
       .i-link
         padding 0 14px
@@ -132,7 +132,7 @@ export default {
         position relative
         text-align left
         z-index 10000
-        width 980px
+        width 1160px
         zoom 1
         &:after
           content ''
