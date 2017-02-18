@@ -42,7 +42,7 @@ export default {
     	height 170px
     	z-index 10
     .h-center
-    	width 1160px
+    	width 960px
     	margin 0 auto
     	position relative
     	height 170px

@@ -1,9 +1,9 @@
 <template>
-	<li class="m-i" :class="{home: num === 1}">
+	<li class="m-i" :class="classes">
 		<a class="i-link" href="">
-			<em>{{title}}</em>
-			<div class="v-num" v-if="num !== 1">
-				<span class="addnew_1">{{num}}</span>
+			<em>{{item.title}}</em>
+			<div class="v-num" v-if="showNum">
+				<span class="addnew_1">{{item.num}}</span>
 			</div>
 		</a>
 		<ul></ul>
@@ -14,10 +14,28 @@
 export default {
 	data() {
 		return {
-			title: '动画'
+			classes: {
+				home: this.item.home,
+				sequare: this.item.sequare,
+				live: this.item.live
+			}
 		}
 	},
-	props: ['num']
+	props: {
+		item: {
+			type: Object,
+			required: true
+		}
+	},
+	computed: {
+		showNum() {
+			console.log(JSON.stringify(this.item))
+			if (this.item.home || this.item.sequare || this.item.live) {
+				return false
+			}
+			return true
+		}
+	}
 }
 </script>
 
@@ -39,6 +57,26 @@ export default {
 					padding-left 0
 					padding-right 0
 					margin 0
+		&.sequare
+			margin 0 12px 0 14px
+			em
+				padding-left 22px
+				padding-right 0
+				padding-top 0
+				height 50px
+				margin 0!important
+				font-size 16px
+				background url(../../assets/images/icons.png) -664px -518px no-repeat
+		&.live
+			margin-left 16px
+			em
+				padding-left 22px
+				padding-right 0
+				padding-top 0
+				height 50px
+				margin 0!important
+				font-size 16px
+				background url(../../assets/images/icons.png) -664px -904px no-repeat
 		a
 			color #222
 			display block

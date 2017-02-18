@@ -132,7 +132,7 @@ export default {
         position relative
         text-align left
         z-index 10000
-        width 1160px
+        width 980px
         zoom 1
         &:after
           content ''
@@ -212,14 +212,14 @@ export default {
                   .i-link
                     display inline-block
                     padding 0 10px
-                    color #222
+                    color #fff
                     span
                       display block
                       margin 0px
                       padding 0px
                   .s-line
                     display inline-block
-                    border-left 1px solid #222
+                    border-left 1px solid #fff
                     height 12px
                     margin-top 16px
                     vertical-align top
