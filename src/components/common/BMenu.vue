@@ -11,10 +11,13 @@
 					</div>
 				</a>
 				<a id="mobile_p" class="mobile-p" href="//app.bilibili.com" target="_blank" @mouseover="showMobileLink=true" @mouseout="showMobileLink=false">
-					<div class="mobile-p-box" v-show="showMobileLink">
-						<div class="mobile-p-qrcode">
-						</div>
-					</div>
+					<transition name="fade">
+						<div class="mobile-p-box" v-show="showMobileLink">
+							<div class="mobile-p-qrcode">
+							</div>
+						</div>					
+					</transition>
+
 				</a>
 			</div>
 		</div>
@@ -152,6 +155,10 @@ export default {
 						background url(../../assets/images/app-box.png) center center no-repeat
 						transition .2s
 						transition-property opacity
+						&.fade-enter-active, &.fade-leave
+							opacity 1
+						&.fade-enter, &.fade-leave-active
+							opacity 0
 						.mobile-p-qrcode
 							position absolute
 							top 30px
