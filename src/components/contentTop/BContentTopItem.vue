@@ -1,0 +1,84 @@
+<template>
+	<li class="top-item">
+		<div class="v-item">
+			<a href="/video/av8815046/" target="_blank" title="【阴阳师/狗博】射杀恋人之日【ALeo维】">
+				<div class="preview">
+					<img src="//i0.hdslb.com/bfs/archive/dcf689fdc2e4560a08c272471bfb91e2a0656f64.jpg@320w_200h.webp" alt="【阴阳师/狗博】射杀恋人之日【ALeo维】">
+				</div>
+				<div class="mask">
+				</div>
+				<div class="info">
+					<div class="t">【阴阳师/狗博】射杀恋人之日【ALeo维】</div>
+					<span class="up">up主：要小心有毒的橙汁</span>
+					<span class="play">播放:46022</span>
+				</div>
+			</a>
+		</div>
+	</li>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style lang="stylus" scoped>
+	.top-item
+		float left
+		width 180px
+		margin-bottom 20px
+		.v-item
+			width 160px
+			height 100px
+			position relative
+			.preview
+				height 100px
+				background 0
+				overflow hidden
+				border-radius 4px
+			img
+				height 100%
+				margin 0 auto
+				display block
+				width 160px
+				opacity 1
+			.mask
+				position absolute
+				width 100%
+				height 100%
+				top 0px
+				left 0px
+				z-index 1
+				background rgba(0,0,0,0.7)
+				transition .3s all linear
+				border-radius 4px
+			.info
+				padding 10px 0 3px
+				height 18px
+				position absolute
+				width 100%
+				bottom 0
+				left 0px
+				z-index 1
+				background linear-gradient(transparent,rgba(0,0,0,0.1) 20%,rgba(0,0,0,0.2) 35%,rgba(0,0,0,0.6) 65%,rgba(0,0,0,0.9))
+				border-radius 0 0 4px 4px
+				.t
+					height 18px
+					line-height 18px
+					overflow hidden
+					color #fff
+					color #fff
+					margin 0 5px
+					word-break break-all
+					word-wrap break-word
+				p
+					color #99a2aa
+					margin 5px 5px 0
+					transition .2s all linear
+					.up
+						margin-top 10px
+						text-overflow ellipsis
+						overflow hidden
+						white-space nowrap
+</style>

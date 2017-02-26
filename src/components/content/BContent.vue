@@ -6,7 +6,7 @@
 					<Banner></Banner>
 				</div>
 				<div class="b-r">
-					
+					<BContentTop></BContentTop>
 				</div>
 			</div>
 		</div>
@@ -16,14 +16,16 @@
 
 <script>
 import Banner from 'components/banner/Banner'
+import BContentTop from 'components/contentTop/BContentTop'
 export default {
 	components: {
-		Banner
+		Banner,
+		BContentTop
 	}
 }
 </script>
 
-<style lang="stylus" scoped="">
+<style lang="stylus" scoped>
 	.content
 		zoom 1
 		.container-top

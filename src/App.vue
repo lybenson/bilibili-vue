@@ -2,20 +2,20 @@
   <div id="app">
     <TopContainer></TopContainer>
     <BHeader></BHeader>
-    <Content></Content>
+    <BContent></BContent>
   </div>
 </template>
 
 <script>
 import TopContainer from 'components/common/TopContainer.vue'
 import BHeader from 'components/common/BHeader.vue'
-import Content from 'components/content/Content.vue'
+import BContent from 'components/content/BContent.vue'
 export default {
   name: 'app',
   components: {
     TopContainer,
     BHeader,
-    Content
+    BContent
   }
 }
 </script>

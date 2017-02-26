@@ -16,11 +16,11 @@
 					</span>
 				</div>
 				<ul class="slide-bar">
-					<li bar="bar"></li>
-					<li bar="bar"></li>
-					<li bar="bar"></li>
-					<li bar="bar"></li>
-					<li bar="bar"></li>
+					<li class="on"></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
 				</ul>
 			</div>
 		</div>
@@ -56,7 +56,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped="">
+<style lang="stylus" scoped>
 	.banner
 		height 220px
 		width 440px
@@ -124,4 +124,6 @@ export default {
 						height 18px
 						margin 2px 2px
 						background url(../../assets/images/icons.png) -855px -790px no-repeat
+						&.on
+							background-position -855px -727px
 </style>
