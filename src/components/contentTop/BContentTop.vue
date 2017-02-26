@@ -23,4 +23,6 @@ export default {
 		height 240px
 		overflow hidden
 		margin-left 20px
+		.top-list
+			margin-right -20px
 </style>
