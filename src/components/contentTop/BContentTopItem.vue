@@ -47,23 +47,22 @@ export default {
 				position absolute
 				width 100%
 				height 100%
+				opacity 0
+				visibility hidden
 				top 0px
 				left 0px
 				z-index 1
 				background rgba(0,0,0,0.7)
 				transition .3s all linear
 				border-radius 4px
-			.t
-				height 18px
-				line-height 18px
-				overflow hidden
-				color #fff
-				margin 0 5px
-				word-break break-all
-				word-wrap break-word
+				&:hover
+					visibility visible
+					opacity 1
+					transition none
 			.info
 				padding 10px 0 3px
 				height 18px
+				overflow hidden
 				position absolute
 				width 100%
 				bottom 0
@@ -75,10 +74,34 @@ export default {
 					color #99a2aa
 					margin 5px 5px 0
 					transition .2s all linear
+					opacity 0
 					height 16px
 					&.up
 						margin-top 10px
 						text-overflow ellipsis
 						overflow hidden
 						white-space nowrap
+				.t
+					height 18px
+					line-height 18px
+					overflow hidden
+					color #fff
+					margin 0 5px
+					word-break break-all
+					word-wrap break-word
+			&:hover .mask
+				visibility visible
+				opacity 1
+				transition none
+			&:hover .info 
+				padding 0
+				height 100%
+				background 0
+			&:hover .info p
+				opacity 1
+				transition .3s all linear
+			&:hover .t
+				margin-top 10px
+				height 36px
+
 </style>

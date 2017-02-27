@@ -40,6 +40,5 @@ export default {
 			.b-r
 				float right
 				width 540px
-				height 220px
-				background-color green
+				height auto
 </style>
