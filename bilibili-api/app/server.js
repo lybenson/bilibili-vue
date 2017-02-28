@@ -14,24 +14,9 @@ import resource from 'koa-static' //静态资源托管
 
 import path from 'path'
 
-import router from './routes'
+import routes from './routes'
 import config from '../config/config';
 
-// 同步已定义的模型到数据库
-// models.sync({force: true}).then(function () {
-// 	console.log('Server Success')
-// }).catch (function (error) {
-// 	console.log('Server Failed' + error)
-// })
-
-// import router from './routes';
-
-// import middlewares from './middlewares';
-// import cacheMiddle from './middlewares/cache';
-
-// const redisStore = koaRedis({
-//   url: config.redisUrl
-// });
  
 const app = new Koa();
 
@@ -44,7 +29,6 @@ app.use(convert(logger()))
 app.use(bodyParser())
 
 app.use(resource(path.join(__dirname, '../public')))
-console.log(path.join(__dirname, '../public'))
 // app.use(json({ pretty: false, param: 'pretty' }))
 
 app.use(async (ctx, next) => {
@@ -54,8 +38,8 @@ app.use(async (ctx, next) => {
 	console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
-// router
-app.use(router.routes(), router.allowedMethods());
+// routes
+app.use(routes.routes(), routes.allowedMethods());
 
 
 app.on('error', (error, ctx) => {

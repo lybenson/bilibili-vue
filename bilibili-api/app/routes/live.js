@@ -1,11 +1,12 @@
 import Router from 'koa-router'
 import axios from 'axios'
-import { banner } from './urlConfig'
+import { live } from './urlConfig'
 
 const router = Router()
 
-router.get('/banner', async (ctx, next) => {
-  let response = await axios.get(banner)
+// 直播
+router.get('/live', async (ctx, next) => {
+  let response = await axios.get(live)
   ctx.body = response.data
 })
 
