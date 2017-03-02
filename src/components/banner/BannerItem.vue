@@ -1,16 +1,15 @@
 <template>
 	<li class="banner-item">
-		<a href="" class="b-link" target="_blank">
-			<img :src="bannerLink">
+		<a :href="banner.url" class="b-link" target="_blank">
+			<img :src="banner.pic">
 		</a>
 	</li>
 </template>
 <script>
 export default {
 	props: {
-		bannerLink: {
-			type: String,
-			required: true
+		banner: {
+			type: Object
 		}
 	}
 }

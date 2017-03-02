@@ -17,5 +17,9 @@ router.get('/randking', async (ctx, next) => {
   let response = await axios.get(randking)
   ctx.body = response.data
 })
+router.get('/1-3day.json', async (ctx, next) => {
+  let response = await axios.get(randking)
+  ctx.body = response.data
+})
 
 export default router

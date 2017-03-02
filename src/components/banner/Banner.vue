@@ -3,24 +3,21 @@
 		<div class="topic-preview-wrapper">
 			<div class="topic-preview-list-wrapper">
 				<ul class="topic-preview" style="width: 500%;"  ref="banner"> 
-					<BannerItem v-for="i in bannerLinks" :banner-link="i"></BannerItem>
+					<BannerItem v-for="item  in bannerlist" :banner="item"></BannerItem>
 				</ul>
 			</div>
 			<a class="more-topic" href="/topic/integrated-1.html" target="_blank">更多
 				<i class="b-icon"></i>
 			</a>
 			<div class="s-bottom">
-				<div class="title">
+				<div class="title" v-if="bannerlist[count]">
 					<span class="">
-						<a href="http://www.bilibili.com/blackboard/activity-Hk-ZOAoKl.html" target="_blank">开棺而起！</a>
+						<img src="//static.hdslb.com/images/base/ad.png" style="width: 32px; height: 20px: margin-left: 5px;vertical-align: middle;" v-if="bannerlist[count].is_ad">
+						<a :href="bannerlist[count].url" target="_blank">{{ bannerlist[count].name }}</a>
 					</span>
 				</div>
 				<ul class="slide-bar">
-					<li class="on"></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li :class="{on: count == index}" v-for="(item, index) in bannerlist"></li>
 				</ul>
 			</div>
 		</div>
@@ -29,26 +26,37 @@
 
 <script>
 import BannerItem from 'components/banner/BannerItem'
+import { mapGetters } from 'vuex'
 export default {
 	data() {
 		return {
-			bannerLinks: ['http://i0.hdslb.com/bfs/archive/5e03bce223d8af8f1eeefc7928d0fdf85a51bc7d.jpg', 'http://i0.hdslb.com/bfs/archive/7e1a5353c2bca2704d5f2a85f7cca395ff57f0f1.jpg','http://i0.hdslb.com/bfs/archive/5009a193676d6166083dc756fe40bd555f48864d.jpg','http://i0.hdslb.com/bfs/archive/778b9e7f7ac51a495daa8a0936cb41ae2b4c11e4.png','http://i0.hdslb.com/bfs/archive/14545332a4293781becd078594ddcf045ebe776c.jpg'
-			],
-			count: 0,
-			item: 5
+			count: 0
 		}
+	},
+	computed: {
+		...mapGetters([
+			'requesting',
+			'error',
+			'bannerlist'
+		])
 	},
 	mounted() {
 		//轮播图定时滚动
 		setInterval(() => {
+			this.count ++ 
 			if (this.count === 5) {
 				this.count = 0
 			}
 			let distance = -100 * this.count
+			console.log(this.count + ':' + distance)
+
 			let left = distance + "%"
-			this.$refs.banner.style.marginLeft = left
-			this.count ++
+			if (this.$refs.banner) {
+				this.$refs.banner.style.marginLeft = left
+			}
 		}, 5000)
+		
+		this.$store.dispatch('bannerlist')
 	},
 	components: {
 		BannerItem

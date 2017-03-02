@@ -29,7 +29,6 @@ export default {
 	},
 	computed: {
 		showNum() {
-			console.log(JSON.stringify(this.item))
 			if (this.item.home || this.item.sequare || this.item.live) {
 				return false
 			}
