@@ -1,5 +1,5 @@
 <template>
-	<li class="banner-item">
+	<li class="banner-item" v-if="banner">
 		<a :href="banner.url" class="b-link" target="_blank">
 			<img :src="banner.pic">
 		</a>

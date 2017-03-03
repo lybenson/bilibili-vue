@@ -1,12 +1,12 @@
 <template>
-	<div class="banner">
+	<div class="banner" @mouseover="show=true" @mouseout="show=false">
 		<div class="topic-preview-wrapper">
 			<div class="topic-preview-list-wrapper">
 				<ul class="topic-preview" style="width: 500%;"  ref="banner"> 
 					<BannerItem v-for="item  in bannerlist" :banner="item"></BannerItem>
 				</ul>
 			</div>
-			<a class="more-topic" href="/topic/integrated-1.html" target="_blank">更多
+			<a class="more-topic" href="/topic/integrated-1.html" target="_blank" v-show="show">更多
 				<i class="b-icon"></i>
 			</a>
 			<div class="s-bottom">
@@ -17,7 +17,7 @@
 					</span>
 				</div>
 				<ul class="slide-bar">
-					<li :class="{on: count == index}" v-for="(item, index) in bannerlist"></li>
+					<li :class="{on: count == index}" v-for="(item, index) in bannerlist" @click="cutItem(index)"></li>
 				</ul>
 			</div>
 		</div>
@@ -30,7 +30,9 @@ import { mapGetters } from 'vuex'
 export default {
 	data() {
 		return {
-			count: 0
+			count: 0,
+			show: false,
+			interval: Function
 		}
 	},
 	computed: {
@@ -41,22 +43,34 @@ export default {
 		])
 	},
 	mounted() {
-		//轮播图定时滚动
-		setInterval(() => {
-			this.count ++ 
-			if (this.count === 5) {
-				this.count = 0
-			}
-			let distance = -100 * this.count
-			console.log(this.count + ':' + distance)
-
-			let left = distance + "%"
-			if (this.$refs.banner) {
-				this.$refs.banner.style.marginLeft = left
-			}
-		}, 5000)
-		
+		this.startInterval()
 		this.$store.dispatch('bannerlist')
+	},
+	methods: {
+		cutItem(index) { 
+			this.count = index
+			let distance = -100 * this.count
+			let left = distance + "%"
+			this.$refs.banner.style.marginLeft = left
+
+			//点击圆点停止计时 并重新开启
+			clearInterval(this.interval)
+			this.startInterval()
+		},
+		startInterval() {
+			//轮播图定时滚动
+			this.interval = setInterval(() => {
+				this.count ++ 
+				if (this.count === 5) {
+					this.count = 0
+				}
+				let distance = -100 * this.count
+				let left = distance + "%"
+				if (this.$refs.banner) {
+					this.$refs.banner.style.marginLeft = left
+				}
+			}, 5000)
+		}
 	},
 	components: {
 		BannerItem
@@ -77,18 +91,24 @@ export default {
 			.topic-preview-list-wrapper
 				overflow hidden
 				border-radius 4px
+				.topic-preview
+					width 500%
+					height 100%
 			.more-topic
 				position absolute
 				right 15px
 				bottom 35px
 				color #fff
-				background  rgba(0,0,0,0.64)
+				background rgba(0,0,0,0.64)
 				width 50px
 				height 24px
 				line-height 24px
 				text-align center
 				border-radius 4px
 				transition .2s all linear
+				&:hover
+					text-shadow 0 0 3px #fff
+					color #fff
 				.b-icon
 					display inline-block
 					vertical-align middle
@@ -132,6 +152,8 @@ export default {
 						height 18px
 						margin 2px 2px
 						background url(../../assets/images/icons.png) -855px -790px no-repeat
+						&:hover
+							background-position -919px -790px
 						&.on
 							background-position -855px -727px
 </style>
