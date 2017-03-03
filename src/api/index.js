@@ -10,3 +10,12 @@ export const bannerApi = {
 	}
 }
 
+// 排行榜
+export const rankApi = {
+	ranking3() {
+		return axios.get(url.ranking3).then((response) => {
+			return response.data
+		})
+	}
+}
+

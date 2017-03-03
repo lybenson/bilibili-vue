@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "lodash": "^4.17.4",
     "vue": "^2.1.0",
     "vue-router": "^2.3.0",
     "vuex": "^2.2.1"

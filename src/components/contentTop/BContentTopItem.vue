@@ -1,16 +1,16 @@
 <template>
 	<li class="top-item">
 		<div class="v-item">
-			<a href="/video/av8815046/" target="_blank" title="【阴阳师/狗博】射杀恋人之日【ALeo维】">
+			<a href="/video/av8815046/" target="_blank" :title="contentTop.title">
 				<div class="preview">
-					<img src="//i0.hdslb.com/bfs/archive/dcf689fdc2e4560a08c272471bfb91e2a0656f64.jpg@320w_200h.webp" alt="【阴阳师/狗博】射杀恋人之日【ALeo维】">
+					<img :src="contentTop.pic" :alt="contentTop.title">
 				</div>
 				<div class="mask">
 				</div>
 				<div class="info">
-					<div class="t">【阴阳师/狗博】射杀恋人之日【ALeo维】</div>
-					<p class="up">up主：要小心有毒的橙汁</p>
-					<p class="play">播放:46022</p>
+					<div class="t">{{contentTop.title}}</div>
+					<p class="up">up主：{{contentTop.author}}</p>
+					<p class="play">播放：{{contentTop.play}}</p>
 				</div>
 			</a>
 		</div>
@@ -19,7 +19,11 @@
 
 <script>
 export default {
-
+	props: {
+		contentTop: {
+			type: Object
+		}
+	}
 }
 </script>
 

@@ -1,20 +1,37 @@
 <template>
 	<div class="top-list-wrapper">
 		<ul class="top-list" clearfix>
-			<BContentTopItem></BContentTopItem>
-			<BContentTopItem></BContentTopItem>
-			<BContentTopItem></BContentTopItem>
-			<BContentTopItem></BContentTopItem>
-			<BContentTopItem></BContentTopItem>
+			<BContentTopItem v-for="(item, index) in ranklist" :contentTop="item"></BContentTopItem>
 		</ul>
-		<div class="prev">一周</div>
-    <div class="next">昨日</div>
+		<div class="prev" @click="now = now > 0 ? now -= 1 : now = 2">{{ this.pre = this.now === 0 ? '昨日' : this.now === 1 ? '三日' : '一周'}}</div>
+    <div class="next" @click="now = now < 2 ? now += 1 : now = 0">{{ this.next = this.now === 0 ? '一周' : this.now === 1 ? '昨日' : '三日'}}</div>
 	</div>
 </template>
 
 <script>
 import BContentTopItem from 'components/contentTop/BContentTopItem'
+import { mapGetters } from 'vuex'
 export default {
+	data() {
+		return {
+			now: 0,
+			pre: '',
+			next: ''
+		}
+	},
+	computed: {
+		...mapGetters([
+			'requesting',
+			'error',
+			'ranklist'
+		])
+	},
+	mounted() {
+		this.$store.dispatch('ranklist')
+		// if (!this.ranklist || this.ranklist === []) {
+
+		// }
+	},
 	components: {
 		BContentTopItem
 	}

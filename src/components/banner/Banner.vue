@@ -3,7 +3,7 @@
 		<div class="topic-preview-wrapper">
 			<div class="topic-preview-list-wrapper">
 				<ul class="topic-preview" style="width: 500%;"  ref="banner"> 
-					<BannerItem v-for="item  in bannerlist" :banner="item"></BannerItem>
+					<BannerItem v-for="item in bannerlist" :banner="item"></BannerItem>
 				</ul>
 			</div>
 			<a class="more-topic" href="/topic/integrated-1.html" target="_blank" v-show="show">更多
