@@ -6,6 +6,8 @@ Vue.use(Vuex)
 
 import bannerStore from './modules/bannerStore'
 import rankStore from './modules/rankStore'
+import promoteStore from './modules/promoteStore'
+
 
 const state = {
 	requesting: false,
@@ -22,6 +24,7 @@ export default new Vuex.Store({
 	getters,
 	modules: {
 		bannerStore,
-		rankStore
+		rankStore,
+		promoteStore
 	}
 })

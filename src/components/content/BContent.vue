@@ -10,17 +10,30 @@
 				</div>
 			</div>
 		</div>
-		<div class="container-row"></div>
+		<!-- 推广 -->
+		<div class="container-row">
+			<BPromote></BPromote>
+		</div>
+		<!-- 直播 -->
+		<div class="container-row">
+			
+		</div>
+		<!-- 各分类具体内容 -->
+		<div>
+			
+		</div>
 	</div>
 </template>
 
 <script>
 import Banner from 'components/banner/Banner'
 import BContentTop from 'components/contentTop/BContentTop'
+import BPromote from 'components/promote/BPromote'
 export default {
 	components: {
 		Banner,
-		BContentTop
+		BContentTop,
+		BPromote
 	}
 }
 </script>
@@ -41,4 +54,8 @@ export default {
 				float right
 				width 540px
 				height auto
+		.container-row
+			margin 0 auto
+			zoom 1
+			width 980px
 </style>

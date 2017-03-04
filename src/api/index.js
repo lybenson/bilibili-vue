@@ -19,3 +19,12 @@ export const rankApi = {
 	}
 }
 
+// 推广
+export const promoteApi = {
+	promote() {
+		return axios.get(url.promote).then((response) => {
+			return response.data
+		})
+	}
+}
+

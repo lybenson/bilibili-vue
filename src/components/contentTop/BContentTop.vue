@@ -28,9 +28,6 @@ export default {
 	},
 	mounted() {
 		this.$store.dispatch('ranklist')
-		// if (!this.ranklist || this.ranklist === []) {
-
-		// }
 	},
 	components: {
 		BContentTopItem
