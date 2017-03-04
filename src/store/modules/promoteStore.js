@@ -2,11 +2,15 @@ import { promoteApi } from 'api'
 import * as TYPE from '../actionType/promoteType'
 
 const state = {
-	promote: {}
+	promote: {},
+	promotelist: [],
+	promoteAd: []
 }
 
 const getters = {
-	promote: state => state.promotelist
+	promote: state => state.promote,
+	promotelist: state => state.promotelist,
+	promoteAd: state => state.promoteAd
 }
 
 const actions = {
@@ -29,6 +33,8 @@ const mutations = {
 	},
 	[TYPE.PROMOTE_LIST_SUCCESS] (state, response) {
 		state.promote = response
+		state.promotelist = response.data
+		state.promoteAd = response.promoteAd
 	},
 	[TYPE.PROMOTE_LIST_FAILURE] (state) {
 
