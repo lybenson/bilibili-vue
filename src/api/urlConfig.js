@@ -8,4 +8,7 @@ export const ranking3 = serverRoot + '/ranking3'
 
 // 推广
 export const promote = serverRoot + '/promote'
-export const promoteAd = serverRoot + '/promoteAd'
+
+// 直播
+export const live = serverRoot + '/live'
+

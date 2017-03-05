@@ -16,7 +16,7 @@
 		</div>
 		<!-- 直播 -->
 		<div class="container-row">
-			
+			<BLive></BLive>
 		</div>
 		<!-- 各分类具体内容 -->
 		<div>
@@ -29,11 +29,13 @@
 import Banner from 'components/banner/Banner'
 import BContentTop from 'components/contentTop/BContentTop'
 import BPromote from 'components/promote/BPromote'
+import BLive from 'components/live/BLive'
 export default {
 	components: {
 		Banner,
 		BContentTop,
-		BPromote
+		BPromote,
+		BLive
 	}
 }
 </script>
@@ -41,12 +43,27 @@ export default {
 <style lang="stylus" scoped>
 	.content
 		zoom 1
+		.container-top-wrapper
+			&:after
+				content ''
+				display block
+				visibility hidden
+				height 0
+				clear both
+				font-size 0
 		.container-top
 			padding 0
 			margin-bottom 20px
 			margin 0 auto
 			zoom 1
 			width 980px
+			&:after
+				content ''
+				display block
+				visibility hidden
+				height 0
+				clear both
+				font-size 0
 			.b-l
 				float left
 				width 440px
@@ -58,4 +75,11 @@ export default {
 			margin 0 auto
 			zoom 1
 			width 980px
+			&:after
+				content ''
+				display block
+				visibility hidden
+				height 0
+				clear both
+				font-size 0
 </style>

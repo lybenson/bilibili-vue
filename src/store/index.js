@@ -7,6 +7,7 @@ Vue.use(Vuex)
 import bannerStore from './modules/bannerStore'
 import rankStore from './modules/rankStore'
 import promoteStore from './modules/promoteStore'
+import liveStore from './modules/liveStore'
 
 
 const state = {
@@ -25,6 +26,7 @@ export default new Vuex.Store({
 	modules: {
 		bannerStore,
 		rankStore,
-		promoteStore
+		promoteStore,
+		liveStore
 	}
 })
