@@ -26,15 +26,24 @@
 					</span>
 				</div>
 			</div>
-			<div class="b-body"></div>
+			<div class="b-body">
+				<ul class="v-list-live">
+					<li>
+						<BLiveItem></BLiveItem>
+					</li>
+				</ul>
+			</div>
 		</div>
 		<div class="b-r"></div>
 	</div>
 </template>
 
 <script>
+import BLiveItem from 'components/live/BLiveItem'
 export default {
-
+	components: {
+		BLiveItem
+	}
 }
 </script>
 
@@ -144,6 +153,24 @@ export default {
 						em
 							font-style normal
 							font-weight normal
+			.b-body
+				margin-right -20px
+				&:after
+					content ''
+					display block
+					visibility hidden
+					height 0
+					clear both
+					font-size 0
+				.v-list-live
+					padding-top 20px
+					height 316px
+					overflow hidden
+					li
+						float left
+						margin 0 20px 20px 0
+						height 148px
+						overflow hidden
 		.b-r
 			float right
 			width 260px
