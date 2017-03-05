@@ -10,7 +10,7 @@
 						</a>
 					</span>
 					<span class="b-head-s">
-						当前共有<em>6647</em>个在线直播
+						当前共有<em>{{online_total}}</em>个在线直播
 					</span>
 				</div>
 				<div class="right">
@@ -21,15 +21,15 @@
 				<div class="read-push">
 					<span class="icon-refresh"></span>
 					<span class="info">
-						<b>49834</b>
+						<b>{{dynamic}}</b>
 						<em>条新动态</em>
 					</span>
 				</div>
 			</div>
 			<div class="b-body">
-				<ul class="v-list-live">
-					<li>
-						<BLiveItem></BLiveItem>
+				<ul class="v-list-live" v-if="recommend">
+					<li v-for="item in recommend">
+						<BLiveItem :live="item"></BLiveItem>
 					</li>
 				</ul>
 			</div>
@@ -40,9 +40,25 @@
 
 <script>
 import BLiveItem from 'components/live/BLiveItem'
+import { mapGetters } from 'vuex'
 export default {
 	components: {
 		BLiveItem
+	},
+	computed: {
+		...mapGetters([
+			'requesting',
+			'error',
+			'online_total',
+			'dynamic',
+			'recommend',
+			'ranking',
+			'preview',
+			'recommendAnchor'
+		])
+	},
+	mounted() {
+		this.$store.dispatch('live')
 	}
 }
 </script>
@@ -112,6 +128,8 @@ export default {
 							border 1px solid #ccd0d7
 							color #555
 							border-radius 4px
+							&:hover
+								background-color #ccd0d7
 							.b-icon-arrow-r
 								display inline-block
 								vertical-align middle
@@ -128,6 +146,8 @@ export default {
 					border-radius 4px
 					height 22px
 					padding 0 10px
+					&:hover
+						background-color #ccd0d7
 					&:after
 						content ''
 						display block

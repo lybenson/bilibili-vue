@@ -1,27 +1,27 @@
 <template>
 	<div class="lv-item">
 		<a class="lv-preview">
-			<img src="//i0.hdslb.com/bfs/live/90ec156dd17d7adc0c2c8262ead6886ff358fcf5.jpg@320w_200h.webp" alt="好久不见" style="opacity: 1;">
+			<img :src="live.pic">
 			<div class="lv-mask">
 				<div class="lv-face">
-					<img src="//i1.hdslb.com/bfs/face/dec5867307ac5c71a56a5d6925057dffe284dee0.jpg@40w_40h.webp" style="opacity: 1;">
+					<img :src="live.face" style="opacity: 1;">
 				</div>
 				<span class="lv-onair-txt"><i class="lv-onair-icon"></i>Live
 				</span>
 			</div>
-			<span class="b-tag">电子竞技</span>
+			<span class="b-tag">{{live.areaName}}</span>
 		</a>
-		<a href="http://live.bilibili.com/128" target="_blank">
+		<a :href="live.link" target="_blank">
 			<div class="lv-room">
-				<div class="lv-t" title="穿睡衣如果尬舞会怎么样">穿睡衣如果尬舞会怎么样</div>
+				<div class="lv-t" :title="live.title">{{live.title}}</div>
 			</div>
 			<div class="lv-info">
 				<div class="lv-host">
 					<i class="b-icon b-icon-live-host">
-					</i>lybenson
+					</i>{{live.uname}}
 				</div>
 				<div class="lv-online">
-					<i class="b-icon b-icon-live-online"></i>4773
+					<i class="b-icon b-icon-live-online"></i>{{live.online}}
 				</div>
 			</div>
 		</a>
@@ -30,7 +30,11 @@
 
 <script>
 export default {
-
+	props: {
+		live: {
+			type: Object
+		}
+	}
 }
 </script>
 

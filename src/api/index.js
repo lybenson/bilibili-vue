@@ -32,6 +32,7 @@ export const promoteApi = {
 export const liveApi = {
 	live() {
 		return axios.get(url.live).then((response) => {
+			console.log(response)
 			return response.data
 		})
 	}
