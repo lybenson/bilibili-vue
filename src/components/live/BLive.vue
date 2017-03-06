@@ -35,29 +35,19 @@
 			</div>
 		</div>
 		<div class="b-r">
-			<div class="b-head">
-				<ul class="b-slt-tab" data-initialized="true">
-					<li>
-						<span class="b-tab-text">直播排行</span>
-					</li>
-					<li class="on">
-						<span class="b-tab-text">关注的主播</span>
-					</li>
-					<li>
-						<span class="b-tab-text">为你推荐</span>
-					</li>
-				</ul>
-			</div>
+			<BLiveRank></BLiveRank>
 		</div>
 	</div>
 </template>
 
 <script>
 import BLiveItem from 'components/live/BLiveItem'
+import BLiveRank from 'components/live/BLiveRank'
 import { mapGetters } from 'vuex'
 export default {
 	components: {
-		BLiveItem
+		BLiveItem,
+		BLiveRank
 	},
 	computed: {
 		...mapGetters([
@@ -212,45 +202,6 @@ export default {
 			min-height 360px
 			height 360px
 			overflow hidden
-			.b-head
-				position relative
-				.b-slt-tab
-					padding-left 0
-					position relative
-					display inline-block
-					vertical-align middle
-					li
-						float left
-						position relative
-						padding 1px 0 2px
-						border-bottom 1px solid transparent
-						height 20px
-						line-height 20px
-						cursor pointer
-						text-align center
-						margin-left 15px
-						&:first-child
-							margin 0
-						&.on
-							background-color transparent
-							border-color #00a1d6
-							color #00aid6
-							.b-tab-text
-								color #00a1d6
-							&:before
-								content ''
-								display block
-								position absolute
-								left 50%
-								margin-left -3px
-								bottom 0
-								width 0
-								height 0
-								border 3px dashed #00a1d6
-								border-bottom-style solid
-								border-top 0
-								border-left-color transparent
-								border-right-color transparent
 		&:after
 			content ''
 			display block
