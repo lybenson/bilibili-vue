@@ -2,18 +2,18 @@
 	<li class="live-item">
 		<div class="r-item r-ranking">
 			<div class="lv-num n1">1</div>
-			<a href="" class="preview" target="_blank" title="渗透之C君">
-				<img src="//i0.hdslb.com/bfs/face/623ccce0ab28b721edb61dd64749d91de18fb384.jpg@.webp" alt="渗透之C君">
+			<a href="" class="preview" target="_blank" :title="渗透之C君">
+				<img :src="rank.face" alt="渗透之C君">
 			</a>
 			<a href="" target="_blank" title="渗透之C君">
 				<div class="r-i">
 					<p class="r-i-t">
-						<span class="u-name">渗透之C君</span>
+						<span class="u-name">{{rank.uname}}</span>
 						<span class="u-online">
-							<i class="b-icon b-icon-live-online"></i><em>7.9万</em>
+							<i class="b-icon b-icon-live-online"></i><em>{{rank.online / 10000}}万</em>
 						</span>
 						<div class="r-i-st">
-							说不定就翻车了
+							{{rank.title}}
 						</div>
 					</p>
 				</div>
@@ -24,7 +24,11 @@
 
 <script>
 export default {
-
+	props: {
+		rank: {
+			type: Object
+		}
+	}
 }
 </script>
 

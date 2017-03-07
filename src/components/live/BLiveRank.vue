@@ -17,7 +17,7 @@
 			<div class="r-list-body">
 				<div class="r-list-wrapper">
 					<ul class="r-list-live">
-						<BLiveRankItem></BLiveRankItem>
+						<BLiveRankItem v-for="item in ranklist" :rank="item"></BLiveRankItem>
 					</ul>
 					<ul class="r-list-live"></ul>
 					<ul class="r-list-live">
@@ -65,6 +65,11 @@
 <script>
 import BLiveRankItem from 'components/live/BLiveRankItem'
 export default {
+	props: {
+		ranklist: {
+			type: Array
+		}
+	},
 	components: {
 		BLiveRankItem
 	}
