@@ -1,16 +1,16 @@
 <template>
 	<li class="live-item">
 		<div class="r-item r-ranking">
-			<div class="lv-num n1">1</div>
-			<a href="" class="preview" target="_blank" :title="渗透之C君">
-				<img :src="rank.face" alt="渗透之C君">
+			<div class="lv-num" :class="{n: index === 0 || index === 1 || index === 2}">{{index + 1}}</div>
+			<a href="" class="preview" target="_blank" :title="rank.uname">
+				<img :src="rank.face" :alt="rank.uname">
 			</a>
-			<a href="" target="_blank" title="渗透之C君">
+			<a href="" target="_blank" :title="rank.uname">
 				<div class="r-i">
 					<p class="r-i-t">
 						<span class="u-name">{{rank.uname}}</span>
 						<span class="u-online">
-							<i class="b-icon b-icon-live-online"></i><em>{{rank.online / 10000}}万</em>
+							<i class="b-icon b-icon-live-online"></i><em>{{online}}万</em>
 						</span>
 						<div class="r-i-st">
 							{{rank.title}}
@@ -27,6 +27,14 @@ export default {
 	props: {
 		rank: {
 			type: Object
+		},
+		index: {
+
+		}
+	},
+	methods: {
+		online() {
+			return this.rank.online / 10000
 		}
 	}
 }
@@ -55,7 +63,7 @@ export default {
 				z-index 20
 				padding 0 3px 0 3px
 				font-weight bolder
-				&.n1
+				&.n
 					background-color #f25d8e
 			.preview
 				display block

@@ -16,10 +16,14 @@
 		<div class="b-body">
 			<div class="r-list-body">
 				<div class="r-list-wrapper">
-					<ul class="r-list-live">
-						<BLiveRankItem v-for="item in ranklist" :rank="item"></BLiveRankItem>
+					<ul class="r-list-live" style="display: none;">
+						<BLiveRankItem v-for="(item, index ) in ranklist" :rank="item" :index="index"></BLiveRankItem>
 					</ul>
-					<ul class="r-list-live"></ul>
+					<ul class="r-list-live">
+						<li class="no-data">
+							<span>没有数据</span>
+						</li>
+					</ul>
 					<ul class="r-list-live">
 						<div class="mini-preview-wrapper">
 							<div class="mini-preview-list-wrapper">
@@ -117,13 +121,27 @@ export default {
 							border-top 0
 							border-left-color transparent
 							border-right-color transparent
+			&:after
+				content ''
+				display block
+				visibility hidden
+				font-size 0
+				height 0
+				clear both
 		.b-body
 			clear both
 			.r-list-body
 				zoom 1
 				overflow hidden
+				&:after
+					content ''
+					display block
+					visibility hidden
+					height 0
+					font-size 0
+					clear both
 				.r-list-wrapper
-					margin-left 0%
+					margin-left -100%
 					width 200%
 					&:after
 						content ''
@@ -137,5 +155,34 @@ export default {
 						width 50%
 						padding-top 20px
 						float left
+						.no-data
+							text-align center!important
+							width 100%!importang
+							height 100%!important
+							padding 0!important
+							margin 0!important
+							line-height 100px!important
+							color #99a2aa!important
+							float none!important
+							span
+								display inline-block
+								vertical-align middle
+								height 20px
+								line-height 20px
+							&:before
+								content ''
+								display inline-block
+								vertical-align middle
+								width 20px
+								height 20px
+								background url(../../assets/images/state.png) no-repeat center -598px
+								margin-right 5px	
+			&:after
+				content ''
+				display block
+				visibility hidden
+				font-size 0
+				height 0
+				clear both
 
 </style>
