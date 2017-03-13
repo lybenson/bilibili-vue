@@ -16,10 +16,10 @@
 		<div class="b-body">
 			<div class="r-list-body">
 				<div class="r-list-wrapper">
-					<ul class="r-list-live" style="display: none;">
+					<ul class="r-list-live" >
 						<BLiveRankItem v-for="(item, index ) in ranklist" :rank="item" :index="index"></BLiveRankItem>
 					</ul>
-					<ul class="r-list-live">
+					<ul class="r-list-live" style="display: none;">
 						<li class="no-data">
 							<span>没有数据</span>
 						</li>
@@ -47,12 +47,26 @@
 							</div>
 							<div class="s-bottom">
 								<div class="info">
-									
+									<div class="info-item">
+										<a class="t" href="//live.bilibili.com/hd/valentinesDay2nd" title="对象？你尽管抢，抢到算我输" target="_blank">对象？你尽管抢，抢到算我输</a>
+									</div>
+									<div class="info-item" style="display: none;">
+										<a class="t" href="//live.bilibili.com/hd/valentinesDay2nd" title="对象？你尽管抢，抢到算我输" target="_blank">对象？你尽管抢，抢到算我输</a>
+									</div>
+									<div class="info-item" style="display: none;">
+										<a class="t" href="//live.bilibili.com/hd/valentinesDay2nd" title="对象？你尽管抢，抢到算我输" target="_blank">对象？你尽管抢，抢到算我输</a>
+									</div>
 								</div>
 								<ul class="slider-bar">
-									<li class="on"></li>
-									<li class="on"></li>
-									<li class="on"></li>
+									<li bar class="on">
+										<a></a>
+									</li>
+									<li bar class="on">
+										<a></a>
+									</li>
+									<li bar>
+										<a></a>
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -177,6 +191,68 @@ export default {
 								height 20px
 								background url(../../assets/images/state.png) no-repeat center -598px
 								margin-right 5px	
+						.mini-preview-wrapper
+							position relative
+							width 260px
+							overflow hidden
+							border-radius 4px
+							.mini-preview-list-wrapper
+								overflow hidden
+								border-radius 4px
+								.mini-preview
+									width 300%
+									margin-left -200%
+									zoom 1
+									&:after
+										content ''
+										height 0
+										display block
+										clear both
+										font-size 0
+									li
+										width 260px
+										height 248px
+										float left
+										overflow hidden
+							.s-bottom
+								position absolute
+								bottom 0px
+								left 0px
+								width 100%
+								border-radius 0 0 4px 4px
+								.info
+									padding 5px 10px 2px
+									line-height 20px
+									background rgba(0,0,0,0.6)
+									a.t
+										display block
+										color #fff
+										overflow hidden
+										white-space nowrap
+										text-overflow ellipsis
+								.slider-bar
+									overflow hidden
+									text-align center
+									background rgba(0,0,0,0.74)
+									li
+										display inline-block
+										vertical-align top
+										cursor pointer
+										height 6px
+										padding 9px 0
+										margin 0 2px
+										a
+											display block
+											width 10px
+											height 6px
+											background-color #fff
+											border-radius 5px
+											transition .2s
+										&.on 
+											a
+												width 30px
+												background-color #f25d8e
+
 			&:after
 				content ''
 				display block
