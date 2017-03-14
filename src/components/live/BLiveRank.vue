@@ -27,34 +27,18 @@
 					<ul class="r-list-live">
 						<div class="mini-preview-wrapper">
 							<div class="mini-preview-list-wrapper">
-								<ul class="mini-preview">
-									<li class="preview">
+								<ul class="mini-preview" ref="miniPreview">
+									<li class="preview" v-for="pre in preview">
 										<a href="" target="_blank">
-											<img src="//i0.hdslb.com/bfs/live/1caac895c488aae25d4d187184d04d62f204fb78.jpg">
-										</a>
-									</li>
-									<li class="preview">
-										<a href="" target="_blank">
-											<img src="//i0.hdslb.com/bfs/live/863a784bded94e7435560b3f1505b5393c6ef40f.jpg">
-										</a>
-									</li>
-									<li class="preview">
-										<a href="" target="_blank">
-											<img src="//i0.hdslb.com/bfs/live/adaca7f86f590fbc79d5a09f31a4a05092c45bcf.jpg">
+											<img :src="pre.pic">
 										</a>
 									</li>
 								</ul>
 							</div>
 							<div class="s-bottom">
 								<div class="info">
-									<div class="info-item">
-										<a class="t" href="//live.bilibili.com/hd/valentinesDay2nd" title="对象？你尽管抢，抢到算我输" target="_blank">对象？你尽管抢，抢到算我输</a>
-									</div>
-									<div class="info-item" style="display: none;">
-										<a class="t" href="//live.bilibili.com/hd/valentinesDay2nd" title="对象？你尽管抢，抢到算我输" target="_blank">对象？你尽管抢，抢到算我输</a>
-									</div>
-									<div class="info-item" style="display: none;">
-										<a class="t" href="//live.bilibili.com/hd/valentinesDay2nd" title="对象？你尽管抢，抢到算我输" target="_blank">对象？你尽管抢，抢到算我输</a>
+									<div class="info-item"  v-for="pre in preview">
+										<a class="t" :href="pre.url" :title="pre.title" target="_blank">{{pre.title}}</a>
 									</div>
 								</div>
 								<ul class="slider-bar">
@@ -71,7 +55,9 @@
 							</div>
 						</div>
 						<div class="live-pmt-live">
-							
+							<li v-for="anchor in recommendAnchor">
+								<div class="pmt-item"><a class="preview" :href="anchor.link" target="_blank" :title="anchor.title"><img :src="anchor.face" :alt="anchor.link"><p class="title">{{anchor.uname}}</p></a></div>
+							</li>
 						</div>
 					</ul>
 				</div>
@@ -83,9 +69,41 @@
 <script>
 import BLiveRankItem from 'components/live/BLiveRankItem'
 export default {
+	data() {
+		return {
+			interval: Function,
+			count: 0
+		}
+	},
 	props: {
 		ranklist: {
 			type: Array
+		},
+		preview: {
+			type: Array
+		},
+		recommendAnchor: {
+			type: Array
+		}
+	},
+	mounted() {
+		this.startInterval()
+		this.$store.dispatch('bannerlist')
+	},
+	methods: {
+		startInterval() {
+			//轮播图定时滚动
+			this.interval = setInterval(() => {
+				this.count ++ 
+				if (this.count === 3) {
+					this.count = 0
+				}
+				let distance = -100 * this.count
+				let left = distance + "%"
+				if (this.$refs.miniPreview) {
+					this.$refs.miniPreview.style.marginLeft = left
+				}
+			}, 2000)
 		}
 	},
 	components: {
@@ -252,7 +270,43 @@ export default {
 											a
 												width 30px
 												background-color #f25d8e
-
+						.live-pmt-live
+							padding-top 10px
+							height 102px
+							overflow hidden
+							li
+								float left
+								margin 0 0 10px 12px
+								&:first-child
+									margin-left 0
+								.pmt-item
+									.preview
+										display block
+										width 56px
+										height 56px
+										position relative
+										border-radius 4px
+										overflow hidden
+										&:hover .title
+											height 100%
+											line-height 22px
+											padding 8px 5px
+											box-sizing border-box
+											word break-all
+										img
+											width 100%
+											height 100%
+											display block
+										.title
+											position absolute
+											bottom 0px
+											right 0px
+											width 100%
+											text-align center
+											height 18px
+											line-height 18px
+											color #fff
+											background rgba(0,0,0,0.5)
 			&:after
 				content ''
 				display block

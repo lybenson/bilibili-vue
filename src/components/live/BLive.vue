@@ -35,7 +35,7 @@
 			</div>
 		</div>
 		<div class="b-r">
-			<BLiveRank :ranklist="ranking"></BLiveRank>
+			<BLiveRank :ranklist="ranking" :preview="preview" :recommendAnchor="recommendAnchor"></BLiveRank>
 		</div>
 	</div>
 </template>

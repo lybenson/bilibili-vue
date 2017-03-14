@@ -44,7 +44,7 @@ const mutations = {
 		state.recommend = live.recommend
 		state.ranking = live.ranking
 		state.preview = live.preview
-		state.recommendAnchor = live.preview
+		state.recommendAnchor = live.recommendAnchor
 	},
 	[TYPE.LIVE_FAILURE] (state) {
 
