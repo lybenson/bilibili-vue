@@ -2,14 +2,8 @@
 	<div class="rank">
 		<div class="b-head">
 			<ul class="b-slt-tab" data-initialized="true">
-				<li>
-					<span class="b-tab-text">直播排行</span>
-				</li>
-				<li class="on">
-					<span class="b-tab-text">关注的主播</span>
-				</li>
-				<li>
-					<span class="b-tab-text">为你推荐</span>
+				<li v-for="(item, index) in tabTitle" @click="cutTab(index)" class="on">
+					<span class="b-tab-text">{{item}}</span>
 				</li>
 			</ul>
 		</div>
@@ -37,18 +31,12 @@
 							</div>
 							<div class="s-bottom">
 								<div class="info">
-									<div class="info-item"  v-for="pre in preview">
+									<div class="info-item"  v-for="(pre, index) in preview" :class="{ show: count == index,hide: count !== index }">
 										<a class="t" :href="pre.url" :title="pre.title" target="_blank">{{pre.title}}</a>
 									</div>
 								</div>
 								<ul class="slider-bar">
-									<li bar class="on">
-										<a></a>
-									</li>
-									<li bar class="on">
-										<a></a>
-									</li>
-									<li bar>
+									<li bar :class="{on: count == index}" v-for="(item, index) in preview" @mouseover="cutItem(index)">
 										<a></a>
 									</li>
 								</ul>
@@ -72,7 +60,8 @@ export default {
 	data() {
 		return {
 			interval: Function,
-			count: 0
+			count: 0,
+			tabTitle: ['直播排行', '关注的主播', '为你推荐']
 		}
 	},
 	props: {
@@ -86,16 +75,30 @@ export default {
 			type: Array
 		}
 	},
-	mounted() {
-		this.startInterval()
-		this.$store.dispatch('bannerlist')
+	watch: {
+		preview() {
+			let size = 100 * this.preview.length
+			let width = size + "%"
+			this.$refs.miniPreview.style.width = width
+			this.startInterval()
+		}
+	},
+	mounted() { 
 	},
 	methods: {
+		cutItem(index) { 
+			this.count = index
+			let distance = -100 * this.count
+			let left = distance + "%"
+			this.$refs.miniPreview.style.marginLeft = left
+			clearInterval(this.interval)
+			this.startInterval()
+		},
 		startInterval() {
 			//轮播图定时滚动
 			this.interval = setInterval(() => {
 				this.count ++ 
-				if (this.count === 3) {
+				if (this.count === this.preview.length) {
 					this.count = 0
 				}
 				let distance = -100 * this.count
@@ -103,7 +106,10 @@ export default {
 				if (this.$refs.miniPreview) {
 					this.$refs.miniPreview.style.marginLeft = left
 				}
-			}, 2000)
+			}, 5000)
+		},
+		cutTab(index) {
+
 		}
 	},
 	components: {
@@ -218,9 +224,10 @@ export default {
 								overflow hidden
 								border-radius 4px
 								.mini-preview
-									width 300%
-									margin-left -200%
+									width 100%
+									margin-left 0%
 									zoom 1
+									transition .2s
 									&:after
 										content ''
 										height 0
@@ -242,6 +249,10 @@ export default {
 									padding 5px 10px 2px
 									line-height 20px
 									background rgba(0,0,0,0.6)
+									.show
+										display block
+									.hide
+										display none
 									a.t
 										display block
 										color #fff
@@ -252,6 +263,10 @@ export default {
 									overflow hidden
 									text-align center
 									background rgba(0,0,0,0.74)
+									&.show
+										display block
+									&.hide
+										display none
 									li
 										display inline-block
 										vertical-align top

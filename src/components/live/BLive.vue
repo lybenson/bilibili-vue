@@ -152,13 +152,15 @@ export default {
 					padding 0 10px
 					&:hover
 						background-color #ccd0d7
+						.icon-refresh
+							transform rotate(360deg)
 					&:after
 						content ''
 						display block
 						visibility hidden
 						height 0
 						clear both
-						font-size 0
+						font-size 0						
 					.icon-refresh
 						background  url(../../assets/images/icons.png) -475px -89px no-repeat
 						display inline-block

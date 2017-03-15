@@ -2,7 +2,7 @@
 	<div class="banner" @mouseover="show=true" @mouseout="show=false">
 		<div class="topic-preview-wrapper">
 			<div class="topic-preview-list-wrapper">
-				<ul class="topic-preview" style="width: 500%;"  ref="banner"> 
+				<ul class="topic-preview" style="width: 500%;" ref="banner"> 
 					<BannerItem v-for="item in bannerlist" :banner="item"></BannerItem>
 				</ul>
 			</div>
@@ -94,6 +94,7 @@ export default {
 				.topic-preview
 					width 500%
 					height 100%
+					transition .2s
 			.more-topic
 				position absolute
 				right 15px
