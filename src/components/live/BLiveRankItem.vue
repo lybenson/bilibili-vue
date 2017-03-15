@@ -32,9 +32,9 @@ export default {
 
 		}
 	},
-	methods: {
+	computed: {
 		online() {
-			return this.rank.online / 10000
+			return (this.rank.online / 10000).toFixed(1)
 		}
 	}
 }

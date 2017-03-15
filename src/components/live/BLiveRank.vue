@@ -2,18 +2,18 @@
 	<div class="rank">
 		<div class="b-head">
 			<ul class="b-slt-tab" data-initialized="true">
-				<li v-for="(item, index) in tabTitle" @click="cutTab(index)" class="on">
+				<li v-for="(item, index) in tabTitle" @click="cutTab(index)" :class="{on: tabCount == index}">
 					<span class="b-tab-text">{{item}}</span>
 				</li>
 			</ul>
 		</div>
 		<div class="b-body">
 			<div class="r-list-body">
-				<div class="r-list-wrapper">
+				<div class="r-list-wrapper" ref="listWrapper">
 					<ul class="r-list-live" >
 						<BLiveRankItem v-for="(item, index ) in ranklist" :rank="item" :index="index"></BLiveRankItem>
 					</ul>
-					<ul class="r-list-live" style="display: none;">
+					<ul class="r-list-live">
 						<li class="no-data">
 							<span>没有数据</span>
 						</li>
@@ -61,6 +61,7 @@ export default {
 		return {
 			interval: Function,
 			count: 0,
+			tabCount: 0,
 			tabTitle: ['直播排行', '关注的主播', '为你推荐']
 		}
 	},
@@ -109,7 +110,10 @@ export default {
 			}, 5000)
 		},
 		cutTab(index) {
-
+			this.tabCount = index
+			let distance = -100 * this.tabCount
+			let left = distance + "%"
+			this.$refs.listWrapper.style.marginLeft = left
 		}
 	},
 	components: {
@@ -137,6 +141,8 @@ export default {
 					cursor pointer
 					text-align center
 					margin-left 15px
+					&:hover
+						color #00a1d6
 					&:first-child
 						margin 0
 					&.on
@@ -179,8 +185,9 @@ export default {
 					font-size 0
 					clear both
 				.r-list-wrapper
-					margin-left -100%
-					width 200%
+					margin-left 000%
+					width 780px
+					transition .2s
 					&:after
 						content ''
 						display block
@@ -190,13 +197,13 @@ export default {
 						height 0
 					.r-list-live
 						display block
-						width 50%
+						width 260px
 						padding-top 20px
 						float left
 						.no-data
 							text-align center!important
 							width 100%!importang
-							height 100%!important
+							height 360px
 							padding 0!important
 							margin 0!important
 							line-height 100px!important

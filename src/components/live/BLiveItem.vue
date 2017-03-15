@@ -59,8 +59,11 @@ export default {
 				top 0px
 				left 0px
 				z-index 1
+				opacity 0
+				visibility hidden
 				transition .2s all linear
 				border-radius 4px
+				background rgba(0,0,0,0.5)
 			.lv-face
 				position absolute
 				width 48px
@@ -148,4 +151,13 @@ export default {
 					background-position -282px -154px
 				&.b-icon-live-online
 					background url(../../assets/images/live-eye.png)
+		&:hover .lv-mask
+			opacity 1
+			visibility visible
+		&:hover .lv-preview:hover .b-tag
+			opacity 0
+		&:hover .lv-t
+			height 50px
+			white-space initial
+			color #00a1d6
 </style>
