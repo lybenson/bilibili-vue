@@ -19,8 +19,8 @@
 			<BLive></BLive>
 		</div>
 		<!-- 各分类具体内容 -->
-		<div>
-			
+		<div class="container-row">
+			<BContentRow></BContentRow>
 		</div>
 	</div>
 </template>
@@ -30,12 +30,14 @@ import Banner from 'components/banner/Banner'
 import BContentTop from 'components/contentTop/BContentTop'
 import BPromote from 'components/promote/BPromote'
 import BLive from 'components/live/BLive'
+import BContentRow from 'components/contentRow/BContentRow'
 export default {
 	components: {
 		Banner,
 		BContentTop,
 		BPromote,
-		BLive
+		BLive,
+		BContentRow
 	}
 }
 </script>
