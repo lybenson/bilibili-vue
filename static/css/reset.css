@@ -59,8 +59,8 @@ li {
     list-style: none;
 }
 
-::-webkit-scrollbar {
-    width: 5px;
+/*::-webkit-scrollbar {
+    width: 16px;
     height: 5px;
 }
 
@@ -79,7 +79,7 @@ li {
     width: 5px;
     background-color: rgba(125, 125, 125, 0.7);
     -webkit-border-radius: 6px;
-}
+}*/
 
 html, body {
     width: 100%;

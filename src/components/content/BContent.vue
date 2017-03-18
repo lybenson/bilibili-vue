@@ -19,7 +19,7 @@
 			<BLive></BLive>
 		</div>
 		<!-- 各分类具体内容 -->
-		<div class="container-row">
+		<div class="container-row"  v-for="x in list">
 			<BContentRow></BContentRow>
 		</div>
 	</div>
@@ -32,6 +32,11 @@ import BPromote from 'components/promote/BPromote'
 import BLive from 'components/live/BLive'
 import BContentRow from 'components/contentRow/BContentRow'
 export default {
+	data() {
+		return {
+			list: [0,1,1]
+		}
+	},
 	components: {
 		Banner,
 		BContentTop,

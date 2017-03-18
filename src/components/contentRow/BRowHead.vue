@@ -16,8 +16,7 @@
 		</ul>
 		<div class="b-link-more">
 			<a href="/video/music.html">
-				更多
-				<i class="b-icon b-icon-arrow-r"></i>
+				更多<i class="b-icon b-icon-arrow-r"></i>
 			</a>
 		</div>
 		<div class="read-push" style="display: block;">
@@ -125,12 +124,13 @@ export default {
 				color #555
 				border-radius 4px
 				.b-icon-arrow-r
+					display inline-block
+					vertical-align middle
 					background url(../../assets/images/icons.png) no-repeat
-					background-position  -478px -218px
 					width 6px
 					height 12px
 					margin -2px 0 0 5px
-					vertical-align middle
+					background-position -478px -218px
 		.read-push
 			float right
 			cursor pointer
@@ -173,4 +173,21 @@ export default {
 				width 14px
 				height 14px
 				margin-top 1px
+			i
+				font-style normal
+				font-weight normal
+			.pmt-link
+				vertical-align top
+				height auto
+				display inline-block
+				padding 0 0 0 8px
+				border 0
+				a
+					max-width 192px
+					overflow hidden
+					white-space nowrap
+					text-overflow ellipsis
+					display block
+					line-height 16px
+					color #6d757a
 </style>
