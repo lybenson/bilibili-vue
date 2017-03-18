@@ -16,5 +16,12 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-	
+	.b-body
+		margin-right -20px
+		clear both
+		.v-list
+			width 100%
+			height 316px
+			overflow hidden
+			padding-top 20px
 </style>

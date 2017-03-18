@@ -22,4 +22,8 @@ export default {
 <style lang="stylus" scoped>
 	.b-section-body
 		zoom 1
+		.b-l
+			float left
+			width 700px
+			
 </style>
