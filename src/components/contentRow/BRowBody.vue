@@ -1,7 +1,7 @@
 <template>
 	<div class="b-body">
 		<ul class="vidbox v-list">
-			<BRowItem></BRowItem>
+			<BRowItem v-for="item in row" :item="item"></BRowItem>
 		</ul>
 	</div>
 </template>
@@ -9,6 +9,11 @@
 <script>
 import BRowItem from 'components/contentRow/BRowItem'
 export default {
+	props: {
+		row: {
+			type: Array
+		}
+	},
 	components: {
 		BRowItem
 	}

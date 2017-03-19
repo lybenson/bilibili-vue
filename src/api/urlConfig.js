@@ -12,3 +12,6 @@ export const promote = serverRoot + '/promote'
 // 直播
 export const live = serverRoot + '/live'
 
+// 具体内容
+export const contet = serverRoot + '/ding'
+

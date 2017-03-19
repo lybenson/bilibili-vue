@@ -19,8 +19,8 @@
 			<BLive></BLive>
 		</div>
 		<!-- 各分类具体内容 -->
-		<div class="container-row"  v-for="x in list">
-			<BContentRow></BContentRow>
+		<div class="container-row"  v-for="(row, index) in rows">
+			<BContentRow :category="sortKeys[index]" :row="row"></BContentRow>
 		</div>
 	</div>
 </template>
@@ -31,11 +31,24 @@ import BContentTop from 'components/contentTop/BContentTop'
 import BPromote from 'components/promote/BPromote'
 import BLive from 'components/live/BLive'
 import BContentRow from 'components/contentRow/BContentRow'
+
+import { mapGetters } from 'vuex'
 export default {
 	data() {
 		return {
 			list: [0,1,1]
 		}
+	},
+	computed: {
+		...mapGetters([
+			'requesting',
+			'error',
+			'rows',
+			'sortKeys'
+		])
+	},
+	mounted() {
+		this.$store.dispatch('getContentRows')
 	},
 	components: {
 		Banner,
@@ -59,9 +72,9 @@ export default {
 				clear both
 				font-size 0
 		.container-top
-			padding 0
-			margin-bottom 20px
+			padding 
 			margin 0 auto
+			margin-bottom 20px
 			zoom 1
 			width 980px
 			&:after

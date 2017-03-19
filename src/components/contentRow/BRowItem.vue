@@ -2,14 +2,14 @@
 	<li class="item-li">
 		<div class="v m300">
 			<!-- 上部分 -->
-			<a class="preview cover-preview" href="">
+			<a class="preview cover-preview" :href="hreflink" target="_blank">
 				<!-- item 左上角的奖牌 -->
 				<div class="medal"></div>
 				<div class="original"></div>
 				<!-- 边框 -->
 				<div class="border"></div>
 				<!-- 背景图片 -->
-				<img src="//i1.hdslb.com/bfs/archive/a5383ac22cb31e24a5b7be56c9105a6ee1034ee8.jpg@320w_200h.webp">
+				<img :src="item.pic">
 				<!-- 内容预览 -->
 				<div class="back">
 					<div>	
@@ -24,19 +24,18 @@
 				</div>
 				<!-- 视频时间 -->
 				<div class="x">
-					<b class="x2">12.00</b>
+					<b class="x2">{{item.duration}}</b>
 				</div>
 			</a>
 					<!-- 下部分 -->
-			<a href="">
-				<div class="t">【毁童年】震惊！哆啦A梦居然做过这种事！</div>
+			<a :href="hreflink" :title="item.title" target="_blank">
+				<div class="t">{{item.title}}</div>
 				<div class="i">
 					<span>
-						<i class="b-icon b-icon-v-play"></i>
-								38.6万
+						<i class="b-icon b-icon-v-play"></i>{{item.play}}
 						</span><span>
 						<i class="b-icon b-icon-v-dm"></i>
-								2594
+						{{item.video_review}}
 					</span>
 				</div>
 			</a>
@@ -46,7 +45,16 @@
 
 <script>
 export default {
-
+	props: {
+		item: {
+			type: Object
+		}
+	},
+	computed: {
+		hreflink() {
+			return 'http://www.bilibili.com/video/av' + this.item.aid
+		}
+	}
 }
 </script>
 
@@ -60,9 +68,10 @@ export default {
 			height 148px
 			font-size 12px
 			overflow hidden
+			transition all .3s linear
 			.x
-				visibility visible
-				opacity 1
+				visibility hidden
+				opacity 0
 			.cover-preview
 				position relative
 				.back
@@ -115,6 +124,16 @@ export default {
 						font-weight normal
 						font-family tahoma,arial,'宋体',sans-serif
 						color #fff
+				.medal
+					opacity 1
+					transition opacity .2s
+				&:hover
+					.medal
+						opacity 0
+					.fore
+						opacity 1
+						.bar
+							opacity 1
 			.preview
 				width 160px
 				height 100px
@@ -134,7 +153,7 @@ export default {
 					height 24px
 					background url(../../assets/images/icons.png) no-repeat
 					z-index 5
-					pointer-events: none
+					pointer-events none
 					background-position -849px -148px
 					transition opacity .2x
 					opacity 1
@@ -181,5 +200,13 @@ export default {
 							background-position -282px -90px
 						&.b-icon-v-dm
 							background-position -282px -218px
+			&:hover 
+				.t
+					height 40px
+					color #00a1d6
+				.x
+					opacity 1
+					visibility visible
+
 
 </style>

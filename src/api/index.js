@@ -32,9 +32,16 @@ export const promoteApi = {
 export const liveApi = {
 	live() {
 		return axios.get(url.live).then((response) => {
-			console.log(response)
 			return response.data
 		})
 	}
 }
 
+// 具体内容
+export const contentApi = {
+	content() {
+		return axios.get(url.contet).then((response) => {
+			return response.data
+		})
+	}
+}

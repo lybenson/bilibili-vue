@@ -1,6 +1,7 @@
 <template>
-	<div>
-		
+	<div class="rank">
+		<div class="b-head"></div>
+		<div class="b-body"></div>
 	</div>
 </template>
 

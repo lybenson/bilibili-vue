@@ -38,7 +38,6 @@ const mutations = {
 		
 	},
 	[TYPE.LIVE_SUCCESS] (state, live) {
-		console.log(JSON.stringify(live.ranking))
 		state.online_total = live.online_total
 		state.dynamic = live.dynamic
 		state.recommend = live.recommend
