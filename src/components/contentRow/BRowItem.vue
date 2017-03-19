@@ -4,7 +4,7 @@
 			<!-- 上部分 -->
 			<a class="preview cover-preview" :href="hreflink" target="_blank">
 				<!-- item 左上角的奖牌 -->
-				<div class="medal"></div>
+				<div class="medal" v-show="false"></div>
 				<div class="original"></div>
 				<!-- 边框 -->
 				<div class="border"></div>

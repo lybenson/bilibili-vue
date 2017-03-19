@@ -78,10 +78,12 @@ export default {
 	},
 	watch: {
 		preview() {
-			let size = 100 * this.preview.length
-			let width = size + "%"
-			this.$refs.miniPreview.style.width = width
-			this.startInterval()
+			if (this.preview) {
+				let size = 100 * this.preview.length
+				let width = size + "%"
+				this.$refs.miniPreview.style.width = width
+				this.startInterval()			
+			}
 		}
 	},
 	mounted() { 
