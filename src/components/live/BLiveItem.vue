@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 	.lv-item
 		width 160px
 		.lv-preview

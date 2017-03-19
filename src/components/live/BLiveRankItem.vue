@@ -40,7 +40,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 	.live-item
 		margin 0 0 14px 0
 		.r-item

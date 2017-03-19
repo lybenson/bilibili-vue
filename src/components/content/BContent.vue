@@ -72,7 +72,7 @@ export default {
 				clear both
 				font-size 0
 		.container-top
-			padding 
+			padding 0
 			margin 0 auto
 			margin-bottom 20px
 			zoom 1

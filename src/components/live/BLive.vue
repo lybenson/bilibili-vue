@@ -67,7 +67,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 	.b-live
 		.b-l
 			float left

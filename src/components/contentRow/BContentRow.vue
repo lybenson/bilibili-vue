@@ -5,7 +5,7 @@
 			<BRowBody :row="row"></BRowBody>
 		</div>
 		<div class="b-r">
-			
+			<BRowRank></BRowRank>
 		</div>
 	</div>
 </template>
@@ -13,6 +13,7 @@
 <script>
 import BRowHead from 'components/contentRow/BRowHead'
 import BRowBody from 'components/contentRow/BRowBody'
+import BRowRank from 'components/contentRow/BRowRank'
 export default {
 	props: {
 		category: {
@@ -24,7 +25,8 @@ export default {
 	},
 	components: {
 		BRowHead,
-		BRowBody
+		BRowBody,
+		BRowRank
 	}
 }
 </script>

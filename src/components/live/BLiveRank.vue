@@ -122,7 +122,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 	.rank
 		.b-head
 			position relative
