@@ -36,7 +36,7 @@ export default {
 		])
 	},
 	mounted() {
-		// console.log(this.categoryId)
+		console.log(this.categoryId)
 		this.$store.dispatch('getContentRank', this.categoryId)
 	},
 	components: {
