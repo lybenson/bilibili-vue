@@ -39,6 +39,7 @@ export const randking = 'http://www.bilibili.com/index/ranking.json'
 // 最底部特别推荐
 export const recommend = 'http://www.bilibili.com/index/recommend.json'
 
+export const rankbase = 'http://www.bilibili.com/index/catalogy/'
 // 各分类下3日排行 http://www.bilibili.com/index/catalogy/
 // 动画排行 1-3day.json
 // 番剧排行 13-3day.json

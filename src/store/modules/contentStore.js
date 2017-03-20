@@ -1,31 +1,37 @@
-import { contentApi } from 'api'
+import { contentApi, contentrankApi } from 'api'
 import * as TYPE from '../actionType/contentType'
 
 
-// douga 动画
-// bangumi 番剧
-// music 音乐
-// dance 舞蹈
-// game 游戏
-// technology  科技
-// life 生活
-// kichiku 鬼畜
-// fashion 时尚
-// ad 广告
-// ent  娱乐
-// movie 电影
-// teleplay TV剧
+// douga 动画 1
+// bangumi 番剧 13
+// music 音乐 3
+// dance 舞蹈 129
+// game 游戏 4
+// technology  科技 36
+// life 生活 160
+// kichiku 鬼畜 119
+// fashion 时尚 155
+// ad 广告 165
+// ent  娱乐 5
+// movie 电影 23
+// teleplay TV剧 11
 
 
 const state = {
 	// 默认排序
 	sortKeys: ['douga', 'bangumi', 'music', 'dance', 'game', 'technology', 'life', 'kichiku', 'fashion', 'ad', 'ent', 'movie', 'teleplay'],
-	rows: []
+	sortIds: [1, 13, 3, 129, 4, 36, 160, 119, 155, 165, 5, 23, 11],
+	rows: [],
+	ranks: [],
+	rank: {}
 }
 
 const getters = {
 	rows: state => state.rows,
-	sortKeys: state => state.sortKeys
+	sortKeys: state => state.sortKeys,
+	sortIds: state => state.sortIds,
+	ranks: state => state.ranks,
+	rank: state => state.rank
 }
 
 const actions = {
@@ -38,6 +44,24 @@ const actions = {
 		}, (error) => {
 			rootState.requesting = false
 			commit(TYPE.CONTENT_FAILURE)
+		})
+	},
+	getContentRank({commit, state, rootState}, categoryId) {
+		console.log(categoryId)
+		rootState.requesting = true
+		commit(TYPE.CONTENT_RANK_REQUEST)
+		let param = {
+			categoryId: categoryId
+		}
+		contentrankApi.contentrank(param).then((response) => {
+			rootState.requesting = false
+			if (categoryId === 1) {
+				console.log(response)
+			}
+			commit(TYPE.CONTENT_RANK_SUCCESS, response)
+		}, (error) => {
+			rootState.requesting = false
+			commit(TYPE.CONTENT_RANK_FAILURE)
 		})
 	}
 }
@@ -61,26 +85,23 @@ const mutations = {
 	},
 	[TYPE.CONTENT_SUCCESS] (state, response) {
 		for(let key of state.sortKeys) {
-			console.log(JSON.stringify(Object.values(response[key])))
+			// console.log(JSON.stringify(Object.values(response[key])))
 			state.rows.push(Object.values(response[key]))
 		}
-		// response['douga']
-		// response['bangumi']
-		// response['music']
-		// response['dance']
-		// response['game']
-		// response['technology']
-		// response['life']
-		// response['kichiku']
-		// response['fashion']
-		// response['ad']
-		// response['ent']
-		// response['movie']
-		// response['teleplay']
-		// 
-
 	},
 	[TYPE.CONTENT_FAILURE] (state) {
+
+	},
+
+	// 排行榜信息
+	[TYPE.CONTENT_RANK_REQUEST] (state) {
+
+	},
+	[TYPE.CONTENT_RANK_SUCCESS] (state, response) {
+		state.ranks.push(response)
+		state.rank = response
+	},
+	[TYPE.CONTENT_RANK_FAILURE] (state) {
 
 	}
 }

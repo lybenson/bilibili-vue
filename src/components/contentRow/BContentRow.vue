@@ -5,7 +5,7 @@
 			<BRowBody :row="row"></BRowBody>
 		</div>
 		<div class="b-r">
-			<BRowRank></BRowRank>
+			<BRowRank :category="category" :rank="rank"></BRowRank>
 		</div>
 	</div>
 </template>
@@ -14,6 +14,7 @@
 import BRowHead from 'components/contentRow/BRowHead'
 import BRowBody from 'components/contentRow/BRowBody'
 import BRowRank from 'components/contentRow/BRowRank'
+import { mapGetters } from 'vuex'
 export default {
 	props: {
 		category: {
@@ -21,7 +22,22 @@ export default {
 		},
 		row: {
 			type: Array
+		},
+		categoryId: {
+			type: Number
 		}
+	},
+	computed: {
+		...mapGetters([
+			'requesting',
+			'error',
+			'ranks',
+			'rank'
+		])
+	},
+	mounted() {
+		// console.log(this.categoryId)
+		this.$store.dispatch('getContentRank', this.categoryId)
 	},
 	components: {
 		BRowHead,

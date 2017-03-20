@@ -9,7 +9,7 @@
 				<!-- 边框 -->
 				<div class="border"></div>
 				<!-- 背景图片 -->
-				<img :src="item.pic">
+				<img v-lazy="item.pic">
 				<!-- 内容预览 -->
 				<div class="back">
 					<div>	

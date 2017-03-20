@@ -24,13 +24,18 @@
 				</div>
 			</div>
 		</div>
-		<BRowRankBody></BRowRankBody>
+		<BRowRankBody :rank="rank"></BRowRankBody>
 	</div>
 </template>
 
 <script>
 import BRowRankBody from 'components/contentRow/BRowRankBody'
 export default {
+	props: {
+		rank: {
+			type: Object
+		}
+	},
 	data() {
 		return {
 			isSelected1: true,

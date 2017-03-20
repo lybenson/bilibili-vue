@@ -20,7 +20,7 @@
 		</div>
 		<!-- 各分类具体内容 -->
 		<div class="container-row"  v-for="(row, index) in rows">
-			<BContentRow :category="sortKeys[index]" :row="row"></BContentRow>
+			<BContentRow :category="sortKeys[index]" :categoryId="sortIds[index]" :row="row"></BContentRow>
 		</div>
 	</div>
 </template>
@@ -44,7 +44,8 @@ export default {
 			'requesting',
 			'error',
 			'rows',
-			'sortKeys'
+			'sortKeys',
+			'sortIds'
 		])
 	},
 	mounted() {

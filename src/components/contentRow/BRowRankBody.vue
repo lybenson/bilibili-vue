@@ -3,13 +3,13 @@
 		<div class="r-list-body">
 			<div class="r-list-wrapper">
 				<ul class="rlist">
-					<li class="on">
+					<li :class="{on: item === 1}" data-gk="524601" data-sc="31945" data-pl="4" data-dm="7122" data-up="凉风有性胖次君" data-subtitle="" data-lm="综合" data-tg="2017-03-17 20:28" data-txt="x" data-yb="11063" v-for="item in rank.hot.list">
 						<i class="number n">
 							1
 						</i>
 						<div class="preview">
 							<a href="/video/av9211860/" title="tttttt" target="_blank">
-								<img data-img="" src="//i1.hdslb.com/bfs/archive/96c58de8d469364c105d15357d03ecedd1c207bd.jpg@320w_200h.webp" loaded="loaded" alt="【Lex】震惊！这部讲述打飞机的漫画，竟被称为神作" style="opacity: 1;">
+								<img data-img="" src="//i1.hdslb.com/bfs/archive/96c58de8d469364c105d15357d03ecedd1c207bd.jpg@320w_200h.webp" loaded="loaded" :alt="item.title" style="opacity: 1;">
 								</a>
 						</div>
 						<a class="rl-info" href="/video/av9211860/" title="【Lex】震惊！这部讲述打飞机的漫画，竟被称为神作 播放:736312 11:30" target="_blank">	
@@ -18,7 +18,7 @@
 							<div class="i">
 								<b class="pts" title="综合评分: 85.2万">综合评分：85.2万
 								</b>
-							</div>
+							</div>{{xx}}
 						</a>
 					</li>
 					<li data-gk="524601" data-sc="31945" data-pl="4" data-dm="7122" data-up="凉风有性胖次君" data-subtitle="" data-lm="综合" data-tg="2017-03-17 20:28" data-txt="素材/全体四月新番 番剧名已经标在视频右下角
@@ -53,7 +53,17 @@ https://www.youtube.com/watch?v=n-9X9ZGlX2o&amp;amp;t=369s" data-yb="430" class=
 
 <script>
 export default {
-
+	props: {
+		rank: {
+			type: Object
+		}
+	},
+	computed: {
+		xx() {
+			console.log(JSON.stringify(this.rank))
+			return 'xx'
+		}
+	}
 }
 </script>
 

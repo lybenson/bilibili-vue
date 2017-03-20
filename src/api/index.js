@@ -45,3 +45,13 @@ export const contentApi = {
 		})
 	}
 }
+
+// 具体内容的排行榜信息
+export const contentrankApi = {
+	contentrank(param) {
+		console.log(JSON.stringify(param))
+		return axios.post(url.contentrank, param).then((response) => {
+			return response.data
+		})
+	}
+}
