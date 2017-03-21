@@ -1,6 +1,6 @@
 <template>
 	<div class="b-head">
-		<span class="b-head-i"></span>
+		<span class="b-head-i" :class="category"></span>
 		<span class="b-head-t">
 			<a href="" :title="title">
 				<h2>{{title}}</h2>
@@ -110,10 +110,35 @@ export default {
 			left 0px
 			top -8px
 			background url(../../assets/images/icons.png) no-repeat
-			background-position -140px -266px
 			width 40px
 			height 39px
 			display inline-block
+			&.douga
+				background-position -141px -908px
+			&.bangumi
+				background-position -141px -140px
+			&.music
+				background-position -141px -266px
+			&.dance
+				background-position -141px -461px
+			&.game
+				background-position -141px -203px
+			&.technology
+				background-position -141px -525px
+			&.life
+				background-position -141px -970px
+			&.kichiku
+				background-position -141px -332px
+			&.fashion
+				background-position -141px -718px
+			&.ad
+				background-position -141px -1228px
+			&.ent
+				background-position -141px -1032px
+			&.movie
+				background-position -141px -396px
+			&.teleplay
+				background-position -141px -845px
 		.b-head-t
 			float left
 			margin-left 46px
