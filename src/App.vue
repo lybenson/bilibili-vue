@@ -3,6 +3,7 @@
     <TopContainer></TopContainer>
     <BHeader></BHeader>
     <BContent></BContent>
+    <BNavSide></BNavSide>
   </div>
 </template>
 
@@ -10,12 +11,14 @@
 import TopContainer from 'components/common/TopContainer.vue'
 import BHeader from 'components/common/BHeader.vue'
 import BContent from 'components/content/BContent.vue'
+import BNavSide from 'components/nav/BNavSide'
 export default {
   name: 'app',
   components: {
     TopContainer,
     BHeader,
-    BContent
+    BContent,
+    BNavSide
   }
 }
 </script>
