@@ -15,6 +15,7 @@ export const live = serverRoot + '/live'
 // 具体内容
 export const contet = serverRoot + '/ding'
 
-// 排行
+// 三日排行
 export const contentrank = serverRoot + '/contentrank'
-
+// 一周排行
+export const contentrankweek = serverRoot + '/contentrankweek'

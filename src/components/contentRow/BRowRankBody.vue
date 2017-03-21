@@ -2,7 +2,7 @@
 	<div class="b-body">
 		<div class="r-list-body">
 			<div class="r-list-wrapper" ref="listWrapper">
-				<ul class="rlist" v-if="rank.hot" @click="one">
+				<ul class="rlist" v-if="rank.hot">
 					<li :class="{on: index === 0}" v-for="(item, index) in rank.hot.list">
 						<i class="number" :class="{n: index === 0 || index === 1 || index === 2}">
 							{{index + 1}}
@@ -23,7 +23,7 @@
 						</a>
 					</li>
 				</ul>
-				<ul class="rlist" v-if="rank.hot_original" @click="two">
+				<ul class="rlist" v-if="rank.hot_original">
 					<li :class="{on: index === 0}" v-for="(item, index) in rank.hot.list">
 						<i class="number" :class="{n: index === 0 || index === 1 || index === 2}">
 							{{index + 1}}
@@ -53,24 +53,70 @@
 </template>
 
 <script>
+import { contentrankApi } from 'api'
 export default {
+	data(){
+		return {
+			threeDayData: {},
+			weekData: {},
+			rank: {}
+		}
+	},
 	props: {
-		rank: {
-			type: Object
-		}
-	},
-	computed: {
-		xx() {
-			console.log(JSON.stringify(this.rank.hot.list))
-			return 'xx'
-		}
-	},
-	methods: {
-		one() {
-			this.$refs.listWrapper.style.marginLeft = '0%'
+		categoryId: {
+			type: Number
 		},
-		two() {
-			this.$refs.listWrapper.style.marginLeft = '-100%'
+		isOrigin: {
+			type: Boolean
+		},
+		isWeek: {
+			type: Boolean
+		}
+	},
+	watch: {
+		isOrigin(val, oldVal) {
+			console.log(this.isWeek)
+			if (val) {
+				console.log('isOrigin')
+				this.$refs.listWrapper.style.marginLeft = '-100%'
+			} else {
+				this.$refs.listWrapper.style.marginLeft = '0%'
+			}
+		},
+		isWeek(val, oldVal) {
+			console.log("change")
+			this.getrankData()
+		}
+	},
+	mounted() {
+		this.getrankData()
+	},				
+	methods: {
+		getrankData() {
+			//防止重复请求
+			if (this.isWeek && JSON.stringify(this.weekData) !== '{}') {
+				this.rank = this.weekData
+				return
+			} 
+			if (!this.isWeek && JSON.stringify(this.threeDayData) !== '{}') {
+				this.rank = this.threeDayData
+				return
+			} 
+
+			let param = {
+				categoryId: this.categoryId
+			}
+			if (this.isWeek) {
+				contentrankApi.contentrankweek(param).then((response) => {
+					this.weekData = response
+					this.rank = this.weekData
+				})
+			} else {
+				contentrankApi.contentrank(param).then((response) => {
+					this.threeDayData = response
+					this.rank = this.threeDayData
+				})
+			}
 		}
 	}
 }
@@ -89,6 +135,7 @@ export default {
 				width 200%
 				margin-left 0%
 				overflow hidden
+				transition .2s
 				.rlist
 					padding-bottom 15px
 					padding-top 20px

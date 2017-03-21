@@ -5,7 +5,7 @@
 			<BRowBody :row="row"></BRowBody>
 		</div>
 		<div class="b-r">
-			<BRowRank :category="category" :rank="rank"></BRowRank>
+			<BRowRank :category="category" :categoryId="categoryId"></BRowRank>
 		</div>
 	</div>
 </template>
@@ -36,8 +36,8 @@ export default {
 		])
 	},
 	mounted() {
-		console.log(this.categoryId)
-		this.$store.dispatch('getContentRank', this.categoryId)
+		// console.log(this.categoryId)
+		// this.$store.dispatch('getContentRank', this.categoryId)
 	},
 	components: {
 		BRowHead,
