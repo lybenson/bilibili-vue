@@ -1,50 +1,11 @@
 <template>
-	<div class="index-nav nav-side" style="opacity: 1; display: block; top: 0px; left: auto; right: 0px;">
+	<div class="index-nav nav-side" style="opacity: 1; display: block; top: 100px; left: auto; right: 0px;">
 		<div class="border"></div>
 		<div class="nav-list">
-			<div class="n-i sortable">
-				<div class="name">直播</div>
+			<div class="n-i sortable" v-for="item in sortValues">
+				<div class="name">{{item}}</div>
 			</div>
-			<div class="n-i sortable">
-				<div class="name">直播</div>
-			</div>
-			<div class="n-i sortable">
-				<div class="name">直播</div>
-			</div>
-			<div class="n-i sortable">
-				<div class="name">直播</div>
-			</div>
-			<div class="n-i sortable">
-				<div class="name">直播</div>
-			</div>
-			<div class="n-i sortable">
-				<div class="name">直播</div>
-			</div>
-			<div class="n-i sortable">
-				<div class="name">直播</div>
-			</div>
-			<div class="n-i sortable">
-				<div class="name">直播</div>
-			</div>
-			<div class="n-i sortable">
-				<div class="name">直播</div>
-			</div>
-			<div class="n-i sortable">
-				<div class="name">直播</div>
-			</div>
-			<div class="n-i sortable">
-				<div class="name">直播</div>
-			</div>
-			<div class="n-i sortable">
-				<div class="name">直播</div>
-			</div>
-			<div class="n-i sortable">
-				<div class="name">直播</div>
-			</div>
-			<div class="n-i sortable">
-				<div class="name">直播</div>
-			</div>
-			<div class="n-i customize" title="自定义">
+			<div class="n-i customize" title="自定义" @click="sort">
 				<i class="n-icon-sort"></i><p>排序</p>
 			</div>
 		</div>
@@ -62,10 +23,19 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
+	computed: {
+		...mapGetters([
+			'sortValues'
+		])
+	},
 	methods: {
 		rotate() {
 			console.log('开始选装')
+		},
+		sort() {
+			console.log('开始排序')
 		}
 	}
 }

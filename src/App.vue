@@ -4,6 +4,7 @@
     <BHeader></BHeader>
     <BContent></BContent>
     <BNavSide></BNavSide>
+    <div class="wnd-mask" ref="mask"></div>
   </div>
 </template>
 
@@ -35,4 +36,14 @@ export default {
     min-width 990px
     tap-highlight-color transparent
     -webkit-tap-highlight-color transparent
+    .wnd-mask
+      position fixed
+      width 100%
+      height 150%
+      background-color #000
+      opacity .5!important
+      z-index 10005
+      top 0px
+      left 0px
+      transition .2s
 </style>
