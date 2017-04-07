@@ -2,9 +2,9 @@
   <div id="app">
     <TopContainer></TopContainer>
     <BHeader></BHeader>
-    <BContent></BContent>
-    <BNavSide></BNavSide>
-    <div class="wnd-mask" ref="mask"></div>
+    <BContent :items="items"></BContent>
+    <BNavSide :options="options"></BNavSide>
+    <!-- <div class="wnd-mask" ref="mask"></div> -->
   </div>
 </template>
 
@@ -20,6 +20,42 @@ export default {
     BHeader,
     BContent,
     BNavSide
+  },
+  data() {
+    return {
+      items: [{
+        name: '动画',
+        id: 'b_douga'
+      }, {
+        name: '游戏',
+        id: 'b_game'
+      }, {
+        name: '音乐',
+        id: 'b_music'
+      }, {
+        name: '舞蹈',
+        id: 'b_dance'
+      }, {
+        name: '科技',
+        id: 'b_technology'
+      }, {
+        name: '生活',
+        id: 'b_life'
+      }, {
+        name: '电影',
+        id: 'b_movie'
+      }]
+    }
+  },
+  computed: {
+    options() {
+      let options = {
+        offset: 100, //偏移的距离
+        items: this.items,
+        offsetTop: 0 //距离顶部距离
+      }
+      return options
+    }
   }
 }
 </script>
