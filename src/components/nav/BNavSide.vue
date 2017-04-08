@@ -55,15 +55,6 @@ export default {
 			y: 0  //被拖拽的元素在其相对的元素上的Y坐标上的偏移
 		}
 	},
-	computed: {
-		...mapGetters([
-			'requesting',
-			'error',
-			'rows',
-			'sortKeys',
-			'sortIds'
-		])
-	},
 	props: {
 		options: {
 			type: Object
@@ -78,14 +69,21 @@ export default {
 			}
 		},
 		rows() {
-			console.log(this.sortKeys + 'xxx')
-			if (this.rows) {
-				console.log(this.rows + '----rows存在')
-				this.initData()
+			console.log('rows 变化')
+			if (this.rows && this.rows.length > 0) {
+				console.log('rows存在:' + this.rows[0])
+				this.init()
 			}
 		}
 	},
 	computed: {
+		...mapGetters([
+			'requesting',
+			'error',
+			'rows',
+			'sortKeys',
+			'sortIds'
+		]),
 		//  偏移值
 		offset() {
 			return this.options.offset || 100
@@ -108,8 +106,8 @@ export default {
 		}
 	},
 	mounted() {
-		console.log('0000'+this.sortIds)
-		if (!this.rows) {
+		if (!this.rows || this.rows.length === 0) {
+			console.log('rows不存在')
 			return
 		}
 		this.init()
@@ -134,9 +132,9 @@ export default {
 		initData() {
 			//将this.options.items转化成新的数组this.data
 			this.data = Array.from(this.options.items, (item) => {
-				let element = document.getElementById(item.id)
+				let element = document.getElementById(item.b_id)
 				if (!element) {
-					console.error(`can not find element of name is ${item.id}`)
+					console.error(`can not find element of name is ${item.b_id}`)
 					return
 				}
 				let offsetTop = this.getOffsetTop(element)

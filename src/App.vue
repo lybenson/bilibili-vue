@@ -25,25 +25,25 @@ export default {
     return {
       items: [{
         name: '动画',
-        id: 'b_douga'
+        b_id: 'b_douga'
       }, {
         name: '游戏',
-        id: 'b_game'
+        b_id: 'b_game'
       }, {
         name: '音乐',
-        id: 'b_music'
+        b_id: 'b_music'
       }, {
         name: '舞蹈',
-        id: 'b_dance'
+        b_id: 'b_dance'
       }, {
         name: '科技',
-        id: 'b_technology'
+        b_id: 'b_technology'
       }, {
         name: '生活',
-        id: 'b_life'
+        b_id: 'b_life'
       }, {
         name: '电影',
-        id: 'b_movie'
+        b_id: 'b_movie'
       }]
     }
   },
@@ -78,7 +78,7 @@ export default {
       height 150%
       background-color #000
       opacity .5!important
-      z-index 10005
+      z-index 1000
       top 0px
       left 0px
       transition .2s
