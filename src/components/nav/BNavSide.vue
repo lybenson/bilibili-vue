@@ -36,6 +36,7 @@
 
 <script>
 import scrollMixin from './smooth-scroll.js'
+import { mapGetters } from 'vuex'
 export default {
 	mixins: [scrollMixin],
 	data() {
@@ -54,6 +55,15 @@ export default {
 			y: 0  //被拖拽的元素在其相对的元素上的Y坐标上的偏移
 		}
 	},
+	computed: {
+		...mapGetters([
+			'requesting',
+			'error',
+			'rows',
+			'sortKeys',
+			'sortIds'
+		])
+	},
 	props: {
 		options: {
 			type: Object
@@ -66,6 +76,13 @@ export default {
 			handler(newVal, oldVal) {
 				this.initData()
 			}
+		},
+		rows() {
+			console.log(this.sortKeys + 'xxx')
+			if (this.rows) {
+				console.log(this.rows + '----rows存在')
+				this.initData()
+			}
 		}
 	},
 	computed: {
@@ -73,7 +90,7 @@ export default {
 		offset() {
 			return this.options.offset || 100
 		},
-		// 拖拽的元素的position会变为absolute,dragStyles用来设置其位置,鼠标运动时会调用,从而实现跟随鼠标运动的功能
+		// 拖拽的元素的position会变为absolute,dragStyles用来设置其位置,鼠标运动时会调用,从而实现跟随鼠标运动
 		dragStyles() { 
 			return {
 				left: `${this.x}px`,
@@ -91,6 +108,10 @@ export default {
 		}
 	},
 	mounted() {
+		console.log('0000'+this.sortIds)
+		if (!this.rows) {
+			return
+		}
 		this.init()
 	},
 	methods: {

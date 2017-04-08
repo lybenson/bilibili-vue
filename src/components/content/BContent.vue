@@ -19,11 +19,9 @@
 			<BLive></BLive>
 		</div>
 		<!-- 各分类具体内容 -->
-		<div class="container-row"  v-for="(row, index) in rows" :id="getContentRowId(index)">
+		<div class="container-row"  v-for="(row, index) in rows">
 		
 			<BContentRow :category="sortKeys[index]" :categoryId="sortIds[index]" :row="row"></BContentRow>
-		}
-		}
 		</div>
 	</div>
 </template>
@@ -37,11 +35,6 @@ import BContentRow from 'components/contentRow/BContentRow'
 
 import { mapGetters } from 'vuex'
 export default {
-	data() {
-		return {
-			list: [0,1,1]
-		}
-	},
 	computed: {
 		...mapGetters([
 			'requesting',
@@ -57,9 +50,9 @@ export default {
 		console.log(JSON.stringify(this.items[0].name) + '=======')
 	},
 	methods: {
-		getContentRowId(index) {
-			return `b_${this.items[index].id}`
-		}
+		// getContentRowId(index) {
+		// 	return `b_${this.items[index].id}`
+		// }
 	},
 	components: {
 		Banner,
