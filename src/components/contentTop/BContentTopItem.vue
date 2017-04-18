@@ -71,7 +71,6 @@ export default {
 				width 100%
 				bottom 0
 				left 0px
-				z-index 1
 				background linear-gradient(transparent,rgba(0,0,0,0.1) 20%,rgba(0,0,0,0.2) 35%,rgba(0,0,0,0.6) 65%,rgba(0,0,0,0.9))
 				border-radius 0 0 4px 4px
 				p

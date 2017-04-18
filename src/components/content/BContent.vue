@@ -19,7 +19,7 @@
 			<BLive></BLive>
 		</div>
 		<!-- 各分类具体内容 -->
-		<div class="container-row"  v-for="(row, index) in rows" :id="getContentRowId(index)">
+		<div class="container-row"  v-for="(row, index) in rows" :id="getContentRowId(index)"> 
 			<BContentRow :category="sortKeys[index]" :categoryId="sortIds[index]" :row="row"></BContentRow>
 		}
 		</div>

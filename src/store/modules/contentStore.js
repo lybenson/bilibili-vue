@@ -88,6 +88,11 @@ const mutations = {
 	[TYPE.CONTENT_SUCCESS] (state, response) {
 		for(let key of state.sortKeys) {
 			// console.log(JSON.stringify(Object.values(response[key])))
+			// let rowItem = {
+			// 	key: response[key],
+			// 	data: Object.values(response[key])
+			// }
+			// state.rows.push(rowItem)
 			state.rows.push(Object.values(response[key]))
 		}
 	},

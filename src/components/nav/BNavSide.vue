@@ -1,5 +1,5 @@
 <template>
-	<div class="nav-side" :class="{customizing: isSort}">
+	<div class="nav-side" :class="{customizing: isSort}" ref="navSide">
 		<transition name="fade">
 			<div v-if="isSort">
 				<div class="tip"></div>
@@ -172,6 +172,7 @@ export default {
 		//进入排序模式
 		sort() {
 			this.isSort = !this.isSort
+			this.$emit('change')
 		},
 		/** 得到鼠标位置 */
 		getPos(e) {
@@ -181,6 +182,12 @@ export default {
 		/** 滚动事件 */
 		scroll(e) {
 			this.scrollTop = window.pageYOffset || (document.documentElement.scrollTop + document.body.scrollTop)
+			if (this.scrollTop >= 300) {
+				this.$refs.navSide.style.top = "0px"
+			} else {
+				this.$refs.navSide.style.top = "240px"
+			}
+			console.log('距离顶部' + this.scrollTop)
 			for (let i = 0; i < this.data.length; i++) {
 				if (this.scrollTop >= this.data[i].offsetTop - this.offset) {
 					this.current = i
@@ -226,7 +233,7 @@ export default {
 		position fixed
 		width 48px
 		text-align center
-		top 0px
+		top 100px
 		left auto
 		right 0px
 		&.customizing

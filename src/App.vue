@@ -3,8 +3,8 @@
     <TopContainer></TopContainer>
     <BHeader></BHeader>
     <BContent :items="items"></BContent>
-    <BNavSide :options="options"></BNavSide>
-    <!-- <div class="wnd-mask" ref="mask"></div> -->
+    <BNavSide :options="options" v-on:change="isShowMask"></BNavSide>
+    <div class="wnd-mask" ref="mask" v-show="showMask"></div>
   </div>
 </template>
 
@@ -44,7 +44,16 @@ export default {
       }, {
         name: '电影',
         b_id: 'b_movie'
-      }]
+      }],
+      showMask: false
+    }
+  },
+  watch: {
+    options() {
+      console.log('options 变化了')
+    },
+    items() {
+      console.log('items 变化了')
     }
   },
   computed: {
@@ -55,6 +64,12 @@ export default {
         offsetTop: 0 //距离顶部距离
       }
       return options
+    }
+  },
+  methods: {
+    isShowMask() {
+      console.log('显示阴影')
+      this.showMask = !this.showMask
     }
   }
 }
