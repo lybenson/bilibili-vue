@@ -19,9 +19,8 @@
 			<BLive></BLive>
 		</div>
 		<!-- 各分类具体内容 -->
-		<div class="container-row"  v-for="(row, index) in rows" :id="getContentRowId(index)"> 
-			<BContentRow :category="sortKeys[index]" :categoryId="sortIds[index]" :row="row"></BContentRow>
-		}
+		<div class="container-row"  v-for="(row, index) in rows" :id="row.b_id" v-if='rows'> 
+			<BContentRow :category="row.category" :categoryId="row.categoryId" :row="row.item"></BContentRow>
 		</div>
 	</div>
 </template>
@@ -44,21 +43,15 @@ export default {
 			'sortIds'
 		])
 	},
-	props: ['items'],
-	mounted() {
-		this.$store.dispatch('getContentRows')
-		console.log(JSON.stringify(this.items) + '=======')
-	},
-	methods: {
-		getContentRowId(index) {
-			if (index > this.items.length-1) {
-				return '123456'
-			}
-			// console.log(index + '=== ' +this.items[index].b_id)
-			// return '123456'
-			return this.items[index].b_id
+	props: {
+		rows: {
+			type: Array
 		}
 	},
+	// mounted() {
+	// 	this.$store.dispatch('getContentRows')
+	// 	console.log(JSON.stringify(this.items) + '=======')
+	// },
 	components: {
 		Banner,
 		BContentTop,

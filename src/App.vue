@@ -2,7 +2,7 @@
   <div id="app">
     <TopContainer></TopContainer>
     <BHeader></BHeader>
-    <BContent :items="items"></BContent>
+    <BContent :rows="rows"></BContent>
     <BNavSide :options="options" v-on:change="isShowMask"></BNavSide>
     <div class="wnd-mask" ref="mask" v-show="showMask"></div>
   </div>
@@ -13,6 +13,8 @@ import TopContainer from 'components/common/TopContainer.vue'
 import BHeader from 'components/common/BHeader.vue'
 import BContent from 'components/content/BContent.vue'
 import BNavSide from 'components/nav/BNavSide'
+
+import { mapGetters } from 'vuex'
 export default {
   name: 'app',
   components: {
@@ -20,6 +22,10 @@ export default {
     BHeader,
     BContent,
     BNavSide
+  },
+  mounted() {
+    this.$store.dispatch('getContentRows')
+    console.log(JSON.stringify(this.items) + '=======')
   },
   data() {
     return {
@@ -57,10 +63,15 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'requesting',
+      'error',
+      'rows'
+    ]),
     options() {
       let options = {
         offset: 100, //偏移的距离
-        items: this.items,
+        items: this.rows,
         offsetTop: 0 //距离顶部距离
       }
       return options

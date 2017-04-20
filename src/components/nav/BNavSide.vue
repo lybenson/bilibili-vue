@@ -233,7 +233,7 @@ export default {
 		position fixed
 		width 48px
 		text-align center
-		top 100px
+		top 240px
 		left auto
 		right 0px
 		&.customizing

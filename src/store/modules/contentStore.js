@@ -21,7 +21,7 @@ const state = {
 	// 默认排序
 	sortKeys: ['douga', 'bangumi', 'music', 'dance', 'game', 'technology', 'life', 'kichiku', 'fashion', 'ad', 'ent', 'movie', 'teleplay'],
 	sortIds: [1, 13, 3, 129, 4, 36, 160, 119, 155, 165, 5, 23, 11],
-	sortValues: ['直播', '动画', '番剧', '音乐', '舞蹈', '游戏', '科技', '生活', '鬼畜', '时尚', '广告', '娱乐', '电影', 'TV剧'],
+	sortValues: ['动画', '番剧', '音乐', '舞蹈', '游戏', '科技', '生活', '鬼畜', '时尚', '广告', '娱乐', '电影', 'TV剧'],
 	rows: [],
 	ranks: [],
 	rank: {}
@@ -86,15 +86,27 @@ const mutations = {
 
 	},
 	[TYPE.CONTENT_SUCCESS] (state, response) {
-		for(let key of state.sortKeys) {
-			// console.log(JSON.stringify(Object.values(response[key])))
-			// let rowItem = {
-			// 	key: response[key],
-			// 	data: Object.values(response[key])
-			// }
-			// state.rows.push(rowItem)
-			state.rows.push(Object.values(response[key]))
+		for (let i = 0; i < state.sortKeys.length; i++) {
+			let category = state.sortKeys[i] 
+			let rowItem = {
+				category: category,
+				categoryId: state.sortIds[i],
+				name: state.sortValues[i],
+				b_id: `b_${category}`,
+				item: Object.values(response[category])
+			}
+			state.rows.push(rowItem)
 		}
+		// for(let key of state.sortKeys) {
+		// 	// console.log(JSON.stringify(Object.values(response[key])))
+		// 	let rowItem = {
+		// 		categoty: 0,
+		// 		key: response[key],
+		// 		data: Object.values(response[key])
+		// 	}
+		// 	// state.rows.push(rowItem)
+		// 	state.rows.push(Object.values(response[key]))
+		// }
 	},
 	[TYPE.CONTENT_FAILURE] (state) {
 
