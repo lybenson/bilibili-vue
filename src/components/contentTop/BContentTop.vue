@@ -14,7 +14,7 @@ import { mapGetters } from 'vuex'
 export default {
 	data() {
 		return {
-			now: 0,
+			now: 0, // 0三日  1 
 			pre: '',
 			next: ''
 		}

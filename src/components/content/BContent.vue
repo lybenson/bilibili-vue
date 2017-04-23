@@ -34,24 +34,11 @@ import BContentRow from 'components/contentRow/BContentRow'
 
 import { mapGetters } from 'vuex'
 export default {
-	computed: {
-		...mapGetters([
-			'requesting',
-			'error',
-			'rows',
-			'sortKeys',
-			'sortIds'
-		])
-	},
 	props: {
 		rows: {
 			type: Array
 		}
 	},
-	// mounted() {
-	// 	this.$store.dispatch('getContentRows')
-	// 	console.log(JSON.stringify(this.items) + '=======')
-	// },
 	components: {
 		Banner,
 		BContentTop,

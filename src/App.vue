@@ -25,32 +25,9 @@ export default {
   },
   mounted() {
     this.$store.dispatch('getContentRows')
-    console.log(JSON.stringify(this.items) + '=======')
   },
   data() {
     return {
-      items: [{
-        name: '动画',
-        b_id: 'b_douga'
-      }, {
-        name: '游戏',
-        b_id: 'b_game'
-      }, {
-        name: '音乐',
-        b_id: 'b_music'
-      }, {
-        name: '舞蹈',
-        b_id: 'b_dance'
-      }, {
-        name: '科技',
-        b_id: 'b_technology'
-      }, {
-        name: '生活',
-        b_id: 'b_life'
-      }, {
-        name: '电影',
-        b_id: 'b_movie'
-      }],
       showMask: false
     }
   },
@@ -79,7 +56,6 @@ export default {
   },
   methods: {
     isShowMask() {
-      console.log('显示阴影')
       this.showMask = !this.showMask
     }
   }

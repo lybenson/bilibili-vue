@@ -184,8 +184,10 @@ export default {
 			this.scrollTop = window.pageYOffset || (document.documentElement.scrollTop + document.body.scrollTop)
 			if (this.scrollTop >= 300) {
 				this.$refs.navSide.style.top = "0px"
+				this.init()
 			} else {
 				this.$refs.navSide.style.top = "240px"
+				this.init()
 			}
 			console.log('距离顶部' + this.scrollTop)
 			for (let i = 0; i < this.data.length; i++) {
@@ -236,6 +238,7 @@ export default {
 		top 240px
 		left auto
 		right 0px
+		z-index 1000
 		&.customizing
 			z-index 10010
 			.n-i.sotrable
