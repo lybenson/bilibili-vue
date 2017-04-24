@@ -216,15 +216,26 @@ new ExtractTextPlugin('[name].[contenthash].css')
 #### 相关截图:
 
 首页：
+
 ![20170423210104.png](http://upload-images.jianshu.io/upload_images/426435-d2a3e8b1463cdd2e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 轮播：
+
 ![20170423213449.png](http://upload-images.jianshu.io/upload_images/426435-edce08bcca33c6a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 直播：
+
 ![20170423210140.png](http://upload-images.jianshu.io/upload_images/426435-c2a8412724f6a121.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![20170423210218.png](http://upload-images.jianshu.io/upload_images/426435-e0f463350b7b5f21.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 排行：
+
 ![20170423210248.png](http://upload-images.jianshu.io/upload_images/426435-6c61dcd032f80f92.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 游戏：
+
 ![20170423213519.png](http://upload-images.jianshu.io/upload_images/426435-bf8786eee29a4f3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 拖拽排序与滚动效果：
+
 ![20170423213599.png](http://upload-images.jianshu.io/upload_images/426435-1ef3ae591420a074.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
