@@ -211,22 +211,20 @@ new ExtractTextPlugin('[name].[contenthash].css')
 
 ## 总结
 
-目前主要功能都已经完成的差不多。主要还差一个预览视频与弹幕的功能尚未完成，希望能把B站首页写完，并且会持续更新中，后面可能会加上直播等功能。欢迎 `follower`
+目前主要功能都已经完成的差不多。主要还差一个预览视频与弹幕的功能尚未完成，希望能把B站首页写完，并且会持续更新中，后面可能会加上直播等功能。
 
 #### 相关截图:
 
 首页：
-
-![20170423210104.png](https://user-gold-cdn.xitu.io/2017/4/24/331a3a341ca3703acac3f5da30bf2f7e)
-
+![20170423210104.png](http://upload-images.jianshu.io/upload_images/426435-d2a3e8b1463cdd2e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 轮播：
-![20170423213449.png](https://user-gold-cdn.xitu.io/2017/4/24/e0598ebb470d4824edcb0a2adfa320bc)
+![20170423213449.png](http://upload-images.jianshu.io/upload_images/426435-edce08bcca33c6a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 直播：
-![20170423210140.png](https://user-gold-cdn.xitu.io/2017/4/24/092caad6de4e8b71506fd66cd787acee)
-![20170423210218.png](https://user-gold-cdn.xitu.io/2017/4/24/2b9896f0fbe43ee6d4621840f620a16e)
+![20170423210140.png](http://upload-images.jianshu.io/upload_images/426435-c2a8412724f6a121.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![20170423210218.png](http://upload-images.jianshu.io/upload_images/426435-e0f463350b7b5f21.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 排行：
-![20170423210248.png](https://user-gold-cdn.xitu.io/2017/4/24/04e8cf88b48624a6305c67b6d53e41d0)
+![20170423210248.png](http://upload-images.jianshu.io/upload_images/426435-6c61dcd032f80f92.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 游戏：
-![20170423213519.png](https://user-gold-cdn.xitu.io/2017/4/24/fd8f6a5aaff820e2f21fe9216b202d62)
+![20170423213519.png](http://upload-images.jianshu.io/upload_images/426435-bf8786eee29a4f3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 拖拽排序与滚动效果：
-![20170423213599.png](https://user-gold-cdn.xitu.io/2017/4/24/b4e5f9ef2734327f3413634f96310cdb)
+![20170423213599.png](http://upload-images.jianshu.io/upload_images/426435-1ef3ae591420a074.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
