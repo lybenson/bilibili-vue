@@ -108,7 +108,8 @@ npm run dev
 
    ```
    rootState.requesting = false  //请求状态更新为false,表示请求结束
-   commit(TYPE.XX_FAILURE, response) //发送同步操作,处理请求失败
+   rootState.error = error
+   commit(TYPE.XX_FAILURE, error) //发送同步操作,处理请求失败
    ```
 
 ## 动画
