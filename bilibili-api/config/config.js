@@ -15,9 +15,6 @@ const defaultConfig = {
   env: env
 }
 
-console.log(env + JSON.stringify(defaultConfig))
-
-// merge 组合两个对象成为一个对象
 const config = _.merge(defaultConfig, configs[env])
 
 export default config

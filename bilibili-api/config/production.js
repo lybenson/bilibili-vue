@@ -1,7 +1,6 @@
 const port = Number.parseInt(process.env.PORT) || 5000;
 
 export default {
-	registerUrl: 'http://app.topfundclub.com:9000/User/RegNewUser',
   port: port,
   hostName: process.env.HOST_NAME_PRO,
   serveStatic: process.env.SERVE_STATIC_PRO || false,
