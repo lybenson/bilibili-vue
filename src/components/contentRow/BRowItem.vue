@@ -32,10 +32,10 @@
 				<div class="t">{{item.title}}</div>
 				<div class="i">
 					<span>
-						<i class="b-icon b-icon-v-play"></i>{{item.play}}
+						<i class="b-icon b-icon-v-play"></i>{{item.stat.view}}
 						</span><span>
 						<i class="b-icon b-icon-v-dm"></i>
-						{{item.video_review}}
+						{{item.stat.reply}}
 					</span>
 				</div>
 			</a>
