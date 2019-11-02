@@ -8,7 +8,7 @@
     "test": "cross-env NODE_ENV=test ./node_modules/.bin/nodemon ./index.js"
   },
   "dependencies": {
-    "axios": "^0.15.3",
+    "axios": "^0.19.0",
     "koa": "^2.0.0",
     "koa-bodyparser": "^3.2.0",
     "koa-convert": "^1.2.0",
