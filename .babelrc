@@ -1,10 +1,23 @@
 {
-  "presets": ["es2015", "stage-2"],
-  "plugins": ["transform-runtime"],
-  "comments": false,
-  "env": {
-    "test": {
-      "plugins": [ "istanbul" ]
-    }
-  }
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": true,
+        "targets": {
+          "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    ["import",
+      {
+        "libraryName": "vant",
+        "libraryDirectory": "es",
+        "style": true
+      }
+    ]
+  ]
 }

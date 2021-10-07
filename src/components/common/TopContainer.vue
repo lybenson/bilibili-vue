@@ -2,51 +2,105 @@
   <div class="top_container">
     <div class="z_top b-header-blur b-header-blur-black">
       <div class="b-header-mask-wrp">
-        <div class="b-header-mask-bg" style="background-image: url('//i0.hdslb.com/bfs/archive/4f59bf959d51592016e07efe62969c411288826a.png');"></div>
-        <div class="b-header-mask"></div>
+        <div
+          class="b-header-mask-bg"
+          style="background-image: url('//i0.hdslb.com/bfs/archive/4f59bf959d51592016e07efe62969c411288826a.png');"
+        />
+        <div class="b-header-mask" />
       </div>
       <div class="z_header">
         <div class="z_top_nav">
           <ul>
             <li class="home">
-              <a class="i-link" href="//www.bilibili.com/">
+              <a
+                class="i-link"
+                href="//www.bilibili.com/"
+              >
                 <span>主站</span>
               </a>
             </li>
             <li class="hbili">
-              <a class="i-link" href="//h.bilibili.com/" title="画友">画友</a>
+              <a
+                class="i-link"
+                href="//h.bilibili.com/"
+                title="画友"
+              >画友</a>
             </li>
-            <li class="b-gc" hasframe="true">
-              <a class="i-link" href="//game.bilibili.com/" title="游戏中心">游戏中心</a>
+            <li
+              class="b-gc"
+              hasframe="true"
+            >
+              <a
+                class="i-link"
+                href="//game.bilibili.com/"
+                title="游戏中心"
+              >游戏中心</a>
             </li>
-            <li class="live" hasframe="true">
-              <a class="i-link" target="_blank" href="//live.bilibili.com/" title="直播">直播</a>
+            <li
+              class="live"
+              hasframe="true"
+            >
+              <a
+                class="i-link"
+                target="_blank"
+                href="//live.bilibili.com/"
+                title="直播"
+              >直播</a>
             </li>
             <li class="b-zb">
-              <a class="i-link" target="_blank" href="//zb.bilibili.com/" title="周边">周边</a>
+              <a
+                class="i-link"
+                target="_blank"
+                href="//zb.bilibili.com/"
+                title="周边"
+              >周边</a>
             </li>
             <li class="planet">
-              <a class="i-link" target="_blank" href="//planet2017.bilibili.com/" title="拜年祭2017">拜年祭
-              <em class="new"></em>
+              <a
+                class="i-link"
+                target="_blank"
+                href="//planet2017.bilibili.com/"
+                title="拜年祭2017"
+              >拜年祭
+                <em class="new" />
               </a>
             </li>
-            <li></li>
+            <li />
           </ul>
         </div>
         <div class="uns_box">
           <ul class="menu">
-            <li id="i_menu_login_reg" guest="yes" class="u-i" style="display: list-item">
-              <a id="i_menu_login_btn" class="i-link login" href="https://account.bilibili.com/login">
+            <li
+              id="i_menu_login_reg"
+              guest="yes"
+              class="u-i"
+              style="display: list-item"
+            >
+              <a
+                id="i_menu_login_btn"
+                class="i-link login"
+                href="https://account.bilibili.com/login"
+              >
                 <span>登录</span>
               </a>
-              <i class="s-line"></i>
-              <a id="i_menu_register_btn" class="i-link reg" href="https://www.bilibili.com/register">
+              <i class="s-line" />
+              <a
+                id="i_menu_register_btn"
+                class="i-link reg"
+                href="https://www.bilibili.com/register"
+              >
                 <span>注册</span>
               </a>
             </li>
             <li class="u-i b-post">
-              <a class="i-link" href="http://member.bilibili.com/v/video/submit.html" target="_blank" @mouseenter="isShowPostMenu = !isShowPostMenu" @mouseleave="isShowPostMenu = !isShowPostMenu">投稿</a>
-              <PostMaterial v-show="isShowPostMenu"></PostMaterial>
+              <a
+                class="i-link"
+                href="http://member.bilibili.com/v/video/submit.html"
+                target="_blank"
+                @mouseenter="isShowPostMenu = !isShowPostMenu"
+                @mouseleave="isShowPostMenu = !isShowPostMenu"
+              >投稿</a>
+              <PostMaterial v-show="isShowPostMenu" />
             </li>
           </ul>
         </div>
@@ -58,16 +112,16 @@
 <script>
 import PostMaterial from './PostMaterial.vue'
 export default {
-  data() {
+  components: {
+    PostMaterial
+  },
+  data () {
     return {
       isShowPostMenu: false
     }
   },
-  components: {
-    PostMaterial
-  },
   methods: {
-    showPostMenu() {
+    showPostMenu () {
       this.isShowPostMenu = !this.isShowPostMenu
     }
   }

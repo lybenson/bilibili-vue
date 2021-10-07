@@ -1,10 +1,17 @@
 <template>
   <div id="app">
-    <TopContainer></TopContainer>
-    <BHeader></BHeader>
-    <BContent :rows="rows"></BContent>
-    <BNavSide :options="options" v-on:change="isShowMask"></BNavSide>
-    <div class="wnd-mask" ref="mask" v-show="showMask"></div>
+    <TopContainer />
+    <BHeader />
+    <BContent :rows="rows" />
+    <BNavSide
+      :options="options"
+      @change="isShowMask"
+    />
+    <div
+      v-show="showMask"
+      ref="mask"
+      class="wnd-mask"
+    />
   </div>
 </template>
 
@@ -16,28 +23,28 @@ import BNavSide from 'components/nav/BNavSide'
 
 import { mapGetters } from 'vuex'
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     TopContainer,
     BHeader,
     BContent,
     BNavSide
   },
-  mounted() {
-    this.$store.dispatch('getContentRows')
-  },
-  data() {
+  data () {
     return {
       showMask: false
     }
   },
   watch: {
-    options() {
+    options () {
       console.log('options 变化了')
     },
-    items() {
+    items () {
       console.log('items 变化了')
     }
+  },
+  mounted () {
+    this.$store.dispatch('getContentRows')
   },
   computed: {
     ...mapGetters([
@@ -45,17 +52,17 @@ export default {
       'error',
       'rows'
     ]),
-    options() {
-      let options = {
-        offset: 100, //偏移的距离
+    options () {
+      const options = {
+        offset: 100, // 偏移的距离
         items: this.rows,
-        offsetTop: 0 //距离顶部距离
+        offsetTop: 0 // 距离顶部距离
       }
       return options
     }
   },
   methods: {
-    isShowMask() {
+    isShowMask () {
       this.showMask = !this.showMask
     }
   }
@@ -63,7 +70,7 @@ export default {
 </script>
 
 <style lang="stylus">
-  #app 
+  #app
     font-family "Microsoft YaHei",Arial,Helvetica,sans-serif
     -webkit-font-smoothing antialiased
     font-size 12px
