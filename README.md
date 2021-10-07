@@ -3,7 +3,7 @@
 
 ## 技术栈
 
-前端：vue2 + vuex + webpack + ES6/7 + stylus + nginx
+前端：vue3 + vuex + vite + stylus + nginx
 
 后端：koa2
 
@@ -24,17 +24,13 @@ git clone https://github.com/lybenson/bilibili-vue.git
 前端运行
 
 ```shell
-cd bilibili-vue
-npm install
-npm run dev
+cd bilibili-vue && yarn && yarn dev
 ```
 
 后端运行
 
 ```shell
-cd bilibili-vue/bilibili-api
-npm install
-npm run dev
+cd bilibili-vue/bilibili-api && yarn install && yarn dev
 ```
 
 为了确保运行正确，请先运行后端服务。再运行前端，之后访问 http://localhost:8080
@@ -79,7 +75,7 @@ npm run dev
     └── BPromoteItem.vue
 ```
 
-组件的原则就是尽量将复杂的UI布局划分成单个小的UI组件，逻辑处理也被划分成更多的单个小的逻辑。数据流动采用的单向数据流动。子组件的数据更多的是来自于父组件，父组件的数据主要是其本身发起的`ajax`请求。本项目中`ajax`请求库使用的是`axios`。
+组件的原则就是尽量将复杂的UI布局划分成单个小的UI组件，逻辑处理也被划分成更多的单个小的逻辑。数据流动采用的单向数据流动。子组件的数据更多的是来自于父组件，父组件的数据主要是其本身发起的`ajax`请求。本项目中`ajax`请求库使用的是`axios`
 
 ## 状态管理
 
@@ -208,8 +204,6 @@ new ExtractTextPlugin('[name].[contenthash].css')
    ```
 
 ## 总结
-
-目前主要功能都已经完成的差不多。主要还差一个预览视频与弹幕的功能尚未完成，希望能把B站首页写完，并且会持续更新中，后面可能会加上直播等功能。
 
 #### 相关截图:
 
