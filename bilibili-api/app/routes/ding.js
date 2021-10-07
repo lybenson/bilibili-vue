@@ -1,6 +1,6 @@
 import Router from 'koa-router'
 import axios from 'axios'
-import { ding } from './urlConfig'
+import { ding } from './urlConfig.js'
 
 const router = Router()
 

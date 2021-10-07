@@ -1,6 +1,6 @@
 import Router from 'koa-router'
 import axios from 'axios'
-import { ranking3, ranking7, randking, rankbase } from './urlConfig'
+import { ranking3, ranking7, randking, rankbase } from './urlConfig.js'
 
 const router = Router()
 

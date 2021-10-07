@@ -1,6 +1,6 @@
 import Router from 'koa-router'
 import axios from 'axios'
-import { liveXhr } from './urlConfig'
+import { liveXhr } from './urlConfig.js'
 
 const router = Router()
 

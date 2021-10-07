@@ -1,6 +1,6 @@
 const port = Number.parseInt(process.env.PORT) || 9050;
 
-module.exports = {
+export default {
   port: port,
   hostName: '',
   assetHost: '',

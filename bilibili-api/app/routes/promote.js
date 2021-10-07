@@ -1,6 +1,6 @@
 import Router from 'koa-router'
 import axios from 'axios'
-import { promote, promoteAd } from './urlConfig'
+import { promote, promoteAd } from './urlConfig.js'
 
 const router = Router()
 

@@ -1,6 +1,6 @@
 import Router from 'koa-router'
 import axios from 'axios'
-import { getSearchDefaultWords, topbg, hot, slideshow, season, recommend } from './urlConfig'
+import { getSearchDefaultWords, topbg, hot, slideshow, season, recommend } from './urlConfig.js'
 
 const router = Router()
 

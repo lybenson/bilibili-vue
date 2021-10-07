@@ -1,7 +1,7 @@
 import _ from 'lodash'
-import development from './development'
-import production from './production'
-import test from './test'
+import development from './development.js'
+import production from './production.js'
+import test from './test.js'
 
 export const env = process.env.NODE_ENV || 'development'
 

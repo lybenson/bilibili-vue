@@ -14,10 +14,15 @@ import resource from 'koa-static' //静态资源托管
 
 import path from 'path'
 
-import routes from './routes'
-import config from '../config/config';
+import routes from './routes/index.js'
+import config from '../config/config.js'
 
- 
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 const app = new Koa();
 
 onerror(app)

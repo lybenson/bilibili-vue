@@ -1,10 +1,10 @@
 import Router from 'koa-router'
-import banner from './banner'
-import ding from './ding'
-import extra from './extra'
-import live from './live'
-import promote from './promote'
-import rank from './rank'
+import banner from './banner.js'
+import ding from './ding.js'
+import extra from './extra.js'
+import live from './live.js'
+import promote from './promote.js'
+import rank from './rank.js'
 
 const router = Router()
 

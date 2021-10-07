@@ -1,6 +1,6 @@
 import Router from 'koa-router'
 import axios from 'axios'
-import { banner } from './urlConfig'
+import { banner } from './urlConfig.js'
 
 const router = Router()
 

@@ -11,13 +11,6 @@
     ]
   ],
   "plugins": [
-    "@babel/plugin-transform-runtime",
-    ["import",
-      {
-        "libraryName": "vant",
-        "libraryDirectory": "es",
-        "style": true
-      }
-    ]
+    "@babel/plugin-transform-runtime"
   ]
 }
