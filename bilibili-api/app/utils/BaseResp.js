@@ -1,6 +1,6 @@
 class BaseResp {
-	constructor(status, msg) {
-    this.status = status;
+  constructor (status, msg) {
+    this.status = status
     this.msg = msg
   }
 }

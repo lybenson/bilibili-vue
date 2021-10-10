@@ -16,6 +16,4 @@ router.use(live.routes(), live.allowedMethods())
 router.use(promote.routes(), promote.allowedMethods())
 router.use(rank.routes(), rank.allowedMethods())
 
-
 export default router
-

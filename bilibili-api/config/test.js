@@ -1,4 +1,4 @@
-const port = Number.parseInt(process.env.PORT) || 9050;
+const port = Number.parseInt(process.env.PORT) || 9050
 
 export default {
   port: port,
@@ -6,4 +6,4 @@ export default {
   assetHost: '',
   serveStatic: true,
   redisUrl: 'redis://localhost:6379/1'
-};
+}

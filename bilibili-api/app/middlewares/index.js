@@ -1,19 +1,19 @@
-async function catchError(ctx, next) {
+export default async function catchError (ctx, next) {
   try {
-    await next();
-    if (ctx.status === 404) ctx.throw(404);
-  } catch(err) {
-    let status = err.status || 500;
+    await next()
+    if (ctx.status === 404) ctx.throw(404)
+  } catch (err) {
+    const status = err.status || 500
     // let message = e.message || 'Server Error!'
-    ctx.status = status;
+    ctx.status = status
     ctx.state = {
       status: status,
-      helpers: helpers,
+      helpers: null,
       currentUser: null
-    };
-    await ctx.render('error/error', {});
-    if (status == 500) {
-      console.log('server error', err, ctx);
+    }
+    await ctx.render('error/error', {})
+    if (status === 500) {
+      console.log('server error', err, ctx)
     }
   }
 }
