@@ -1,34 +1,35 @@
 {
   "name": "bilibili-api",
   "version": "1.0.0",
+  "license": "MIT",
   "description": "",
   "type": "module",
   "scripts": {
     "start": "cross-env NODE_ENV=production ./node_modules/.bin/nodemon babel-node ./server.js",
-    "dev": "cross-env NODE_ENV=development ./node_modules/.bin/nodemon ./index.js",
+    "dev": "cross-env NODE_ENV=development nodemon app/server.js",
     "test": "cross-env NODE_ENV=test ./node_modules/.bin/nodemon ./index.js"
   },
   "dependencies": {
-    "axios": "^0.22.0",
-    "koa": "^2.13.3",
+    "@koa/cors": "^3.3.0",
+    "@koa/router": "^12.0.0",
+    "axios": "^0.27.2",
+    "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",
     "koa-convert": "^2.0.0",
-    "koa-cors": "^0.0.16",
     "koa-logger": "^3.2.1",
-    "koa-onerror": "^4.1.0",
+    "koa-onerror": "^4.2.0",
     "koa-response-time": "^2.1.0",
-    "koa-router": "^10.1.1",
     "koa-static": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/node": "^7.15.8",
-    "@babel/plugin-transform-runtime": "^7.15.8",
+    "@babel/core": "^7.18.9",
+    "@babel/node": "^7.18.9",
+    "@babel/plugin-transform-runtime": "^7.18.9",
     "@babel/polyfill": "^7.12.1",
-    "@babel/preset-env": "^7.15.8",
-    "@babel/register": "^7.15.3",
-    "@babel/runtime": "^7.15.4",
+    "@babel/preset-env": "^7.18.9",
+    "@babel/register": "^7.18.9",
+    "@babel/runtime": "^7.18.9",
     "cross-env": "^7.0.3",
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.19"
   }
 }

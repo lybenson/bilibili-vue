@@ -1,8 +1,3 @@
-/// //////////////MARK:必读////////////////
-// 后来人，接受这个项目不要迷茫，不要彷徨
-// 代码逻辑混乱，接口数据有问题，请你坚持下去
-// 谨记，请勿辱骂前人
-
 import Koa from 'koa'
 import http from 'http'
 import convert from 'koa-convert'
@@ -26,7 +21,7 @@ const app = new Koa()
 
 onerror(app)
 
-app.use(convert(cors()))
+app.use(cors())
 
 app.use(convert(logger()))
 
