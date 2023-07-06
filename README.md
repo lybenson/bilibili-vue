@@ -1,6 +1,3 @@
-
-预览地址： [http://www.lybenson.com/bilibili/](http://www.lybenson.com/bilibili/)
-
 ## 技术栈
 
 前端：vue3 + vuex + vite + stylus + nginx
